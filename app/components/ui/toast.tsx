@@ -2,15 +2,15 @@
 
 import React from 'react'
 
-import { useTheme } from '@/components/theme-provider'
 import { IconCheck, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from 'justd-icons'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 
 import { buttonStyles } from './button'
-
+import { useTheme } from 'remix-themes'
+import '@/styles/sonner.css'
 const Toast = ({ ...props }: ToasterProps) => {
-  const { theme = 'system' } = useTheme()
+  const [theme] = useTheme()
   return (
     <ToasterPrimitive
       theme={theme as ToasterProps['theme']}

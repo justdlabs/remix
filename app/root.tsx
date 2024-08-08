@@ -5,6 +5,7 @@ import { LoaderFunction } from '@remix-run/node'
 
 import type { LinksFunction } from "@remix-run/node";
 import stylesheet from "@/tailwind.css?url";
+import { Toast } from './components/ui/toast';
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -38,6 +39,7 @@ function App() {
         <Links />
       </head>
       <body className='antialiased min-h-svh bg-tertiary font-sans'>
+        <Toast />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
