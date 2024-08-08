@@ -65,7 +65,7 @@ export function Nav() {
               <ThemeSwitcher />
               <Link
                 className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
-                href="https://github.com/irsyadadl/next-starter-kit"
+                href="https://github.com/justdlabs/remix"
               >
                 <IconBrandGithub />
               </Link>
