@@ -1,10 +1,9 @@
-import { IconMoon, IconSun } from '@irsyadadl/paranoid'
+import { IconMoon, IconSun } from 'justd-icons'
 import { Theme, useTheme } from "remix-themes"
 import { Button } from '@/components/ui/button'
 
 export function ThemeSwitcher() {
   const [theme, setTheme] = useTheme()
-  console.log(theme)
   const switchTheme = () => {
     setTheme((prevTheme) => (prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT));
   };
