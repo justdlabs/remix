@@ -1,11 +1,10 @@
 'use client'
 
-import { Container } from '@/components/container'
-import { CardHeader, CardTitle, CardDescription } from './ui/card'
+import { CardDescription, CardHeader, CardTitle, Container } from 'ui'
 
 interface HeaderProps {
   title: string
-  description: string
+  description?: string
 }
 
 export function Header({ title, description }: HeaderProps) {

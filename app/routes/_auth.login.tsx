@@ -1,14 +1,29 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Form } from '@/components/ui/form'
-import { Link } from '@/components/ui/link'
-import { TextField } from '@/components/ui/text-field'
 import { FormEvent } from 'react'
 
+import type { MetaFunction } from '@remix-run/node'
 import { toast } from 'sonner'
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Checkbox,
+  Form,
+  Link,
+  TextField
+} from 'ui'
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title: 'Login | Just D. Starter Kit'
+    }
+  ]
+}
 
 export default function LoginForm() {
   const submit = (e: FormEvent) => {

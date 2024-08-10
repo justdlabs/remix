@@ -1,28 +1,38 @@
-import { ThemeProvider, useTheme, PreventFlashOnWrongTheme } from 'remix-themes'
+import { Nav } from '@/components/nav'
+import { RouteProvider } from '@/components/route-provider'
+import stylesheet from '@/tailwind.css?url'
+import { LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useLoaderData
+} from '@remix-run/react'
+import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from 'remix-themes'
+import { Toast } from 'ui'
+
 import { themeSessionResolver } from './sessions.server'
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
-import { LoaderFunction } from '@remix-run/node'
 
-import type { LinksFunction } from "@remix-run/node";
-import stylesheet from "@/tailwind.css?url";
-import { Toast } from './components/ui/toast';
-
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
-];
-export const loader: LoaderFunction = async ({ request }) => {
+export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request)
   return {
-    theme: getTheme(),
+    theme: getTheme()
   }
 }
+
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: stylesheet }]
 
 export default function AppWithProviders() {
   const data = useLoaderData<typeof loader>()
   return (
-    <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
-      <App />
-    </ThemeProvider>
+    <RouteProvider>
+      <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
+        <App />
+      </ThemeProvider>
+    </RouteProvider>
   )
 }
 
@@ -30,7 +40,7 @@ function App() {
   const data = useLoaderData<typeof loader>()
   const [theme] = useTheme()
   return (
-    <html lang="en" data-theme={theme ?? ''}>
+    <html lang="en" data-theme={theme ?? ''} className={theme ?? ''}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -38,8 +48,9 @@ function App() {
         <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
         <Links />
       </head>
-      <body className='antialiased min-h-svh bg-tertiary font-sans'>
+      <body className="antialiased min-h-svh bg-tertiary font-sans">
         <Toast />
+        <Nav />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
