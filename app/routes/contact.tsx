@@ -1,13 +1,9 @@
-import { Nav } from "@/components/nav";
-import { Container } from "@/components/ui/container";
+import { Header } from '@/components/header'
 
 export default function Contact() {
   return (
     <>
-      <Nav />
-      <Container>
-        Contact
-      </Container>
+      <Header title="Contact" description="Contact us" />
     </>
   )
 }

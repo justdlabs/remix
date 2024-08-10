@@ -2,16 +2,23 @@
 
 import React, { useEffect } from 'react'
 
-import { Container } from '@/components/container'
 import { ThemeSwitcher } from '@/components/theme-switcher'
-import { IconBrandGithub, IconBrandJustd } from '@irsyadadl/paranoid'
+import { Link, useLocation } from '@remix-run/react'
 import { LayoutGroup, motion } from 'framer-motion'
-import { Button, Link, ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
+import { IconBrandGithub, IconBrandJustd } from 'justd-icons'
+import { ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
-import { buttonStyles } from './ui/button'
-import { useMediaQuery } from './ui/primitive'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetBody } from './ui/sheet'
-import { Outlet, useLocation } from '@remix-run/react'
+import {
+  Button,
+  buttonStyles,
+  Container,
+  Sheet,
+  SheetBody,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  useMediaQuery
+} from 'ui'
 
 const navigations = [
   {
@@ -29,18 +36,6 @@ const navigations = [
   {
     name: 'Login',
     url: '/login'
-  },
-  {
-    name: 'Components',
-    url: 'https://justd.co/components'
-  },
-  {
-    name: 'Colors',
-    url: 'https://justd.co/colors'
-  },
-  {
-    name: 'Icons',
-    url: 'https://paranoid.irsyad.co'
   }
 ]
 
@@ -52,7 +47,7 @@ export function Nav() {
         <Container>
           <div className="flex items-center justify-between">
             <div className="flex gap-x-8 items-center">
-              <Link href="/" className="">
+              <Link aria-label="Home" to="/">
                 <IconBrandJustd className="size-5" />
               </Link>
               {!isMobile && (
@@ -65,11 +60,16 @@ export function Nav() {
               <ThemeSwitcher />
               <Link
                 className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
-                href="https://github.com/justdlabs/remix"
+                to="https://github.com/justdlabs/remix"
+                aria-label="Github Repo"
               >
                 <IconBrandGithub />
               </Link>
-              <Link className={buttonStyles({ appearance: 'outline', size: 'square-petite' })} href="https://justd.co">
+              <Link
+                className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                to="https://getjustd.com"
+                aria-label="Github"
+              >
                 <IconBrandJustd />
               </Link>
               {isMobile && <NavResponsive />}
@@ -77,7 +77,6 @@ export function Nav() {
           </div>
         </Container>
       </nav>
-      <Outlet />
     </main>
   )
 }
@@ -128,12 +127,14 @@ function NavContent() {
         layout={isMobile ? 'stack' : 'grid'}
         className="flex relative sm:flex-row flex-col sm:items-center gap-3 sm:gap-6"
         items={navigations}
+        aria-label="Navigation"
       >
         {(item) => (
           <NavLink
             target={['Components', 'Colors', 'Icons'].includes(item.name) ? '_blank' : undefined}
             href={item.url}
             id={item.url}
+            textValue={item.name}
           >
             {item.name}
           </NavLink>

@@ -1,13 +1,9 @@
-import { Nav } from "@/components/nav";
-import { Container } from "@/components/ui/container";
+import { Header } from '@/components/header'
 
 export default function About() {
   return (
     <>
-      <Nav />
-      <Container>
-        About
-      </Container>
+      <Header title="About" description="Just D. Starter Kit with Remix" />
     </>
   )
 }

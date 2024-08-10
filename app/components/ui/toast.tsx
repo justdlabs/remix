@@ -3,14 +3,14 @@
 import React from 'react'
 
 import { IconCheck, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from 'justd-icons'
+import { useTheme } from 'remix-themes'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 
 import { buttonStyles } from './button'
-import { useTheme } from 'remix-themes'
-import '@/styles/sonner.css'
+
 const Toast = ({ ...props }: ToasterProps) => {
-  const [theme] = useTheme()
+  const [theme, setTheme] = useTheme()
   return (
     <ToasterPrimitive
       theme={theme as ToasterProps['theme']}
