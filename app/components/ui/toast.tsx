@@ -2,19 +2,18 @@
 
 import React from 'react'
 
-import { loader } from '@/root'
-import { useLoaderData } from '@remix-run/react'
 import { IconCheck, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from 'justd-icons'
+import { useTheme } from 'remix-themes'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 
 import { buttonStyles } from './button'
 
 const Toast = ({ ...props }: ToasterProps) => {
-  const data = useLoaderData<typeof loader>()
+  const [theme, setTheme] = useTheme()
   return (
     <ToasterPrimitive
-      theme={data.theme as ToasterProps['theme']}
+      theme={theme as ToasterProps['theme']}
       className="toaster group"
       icons={{
         info: <IconCircleInfoFill />,

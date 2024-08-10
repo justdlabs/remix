@@ -1,5 +1,4 @@
 import { Header } from '@/components/header'
-import { Nav } from '@/components/nav'
 import type { MetaFunction } from '@remix-run/node'
 import { Card, CardDescription, CardHeader, CardTitle, Container, Grid, GridItem, Link } from 'ui'
 

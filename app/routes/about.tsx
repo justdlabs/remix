@@ -1,6 +1,4 @@
 import { Header } from '@/components/header'
-import { Nav } from '@/components/nav'
-import { Container } from 'ui'
 
 export default function About() {
   return (

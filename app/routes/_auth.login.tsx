@@ -1,5 +1,3 @@
-'use client'
-
 import { FormEvent } from 'react'
 
 import type { MetaFunction } from '@remix-run/node'
