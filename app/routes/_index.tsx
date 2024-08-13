@@ -1,6 +1,6 @@
 import { Header } from '@/components/header'
 import type { MetaFunction } from '@remix-run/node'
-import { Card, CardDescription, CardHeader, CardTitle, Container, Grid, GridItem, Link } from 'ui'
+import { Card, Container, Grid, Link } from 'ui'
 
 export const meta: MetaFunction = () => {
   return [
@@ -33,44 +33,44 @@ export default function Index() {
             }}
             className="[&_a]:cursor-pointer [&_a]:inset-0 [&_a]:absolute [&_a]:size-full [&_.grid-cell]:relative"
           >
-            <GridItem>
+            <Grid.Item>
               <Link target="_blank" href="https://getjustd.com" aria-label="Justd" />
               <Card>
-                <CardHeader>
-                  <CardTitle>Just D.</CardTitle>
-                  <CardDescription>
+                <Card.Header>
+                  <Card.Title>Just D.</Card.Title>
+                  <Card.Description>
                     Just D. is a chill set of React components, built on top of React Aria
                     Components, all about keeping the web accessible.
-                  </CardDescription>
-                </CardHeader>
+                  </Card.Description>
+                </Card.Header>
               </Card>
-            </GridItem>
+            </Grid.Item>
 
-            <GridItem>
+            <Grid.Item>
               <Link target="_blank" href="https://getjustd.com/colors" aria-label="Colors" />
               <Card>
-                <CardHeader>
-                  <CardTitle>Colors</CardTitle>
-                  <CardDescription>
+                <Card.Header>
+                  <Card.Title>Colors</Card.Title>
+                  <Card.Description>
                     A stash of over 154 colors blending TailwindCSS vibes with HTML color names,
                     served up in 8 slick formats.
-                  </CardDescription>
-                </CardHeader>
+                  </Card.Description>
+                </Card.Header>
               </Card>
-            </GridItem>
+            </Grid.Item>
 
-            <GridItem>
+            <Grid.Item>
               <Link target="_blank" href="https://getjustd.com/icons" aria-label="Paranoid" />
               <Card>
-                <CardHeader>
-                  <CardTitle>Paranoid</CardTitle>
-                  <CardDescription>
+                <Card.Header>
+                  <Card.Title>Paranoid</Card.Title>
+                  <Card.Description>
                     A library of beautifully crafted react icons, perfect for enhancing the visual
                     appeal and user experience of your web applications.
-                  </CardDescription>
-                </CardHeader>
+                  </Card.Description>
+                </Card.Header>
               </Card>
-            </GridItem>
+            </Grid.Item>
           </Grid>
         </Container>
       </div>

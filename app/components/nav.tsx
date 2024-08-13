@@ -8,17 +8,7 @@ import { LayoutGroup, motion } from 'framer-motion'
 import { IconBrandGithub, IconBrandJustd } from 'justd-icons'
 import { ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
-import {
-  Button,
-  buttonStyles,
-  Container,
-  Sheet,
-  SheetBody,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  useMediaQuery
-} from 'ui'
+import { Button, buttonStyles, Container, Sheet, useMediaQuery } from 'ui'
 
 const navigations = [
   {
@@ -102,17 +92,17 @@ function NavResponsive() {
       <Button size="small" appearance="outline">
         Menu
       </Button>
-      <SheetContent>
-        <SheetHeader className="text-left p-4 border-b">
-          <SheetTitle className="text-sm flex items-center gap-2">
+      <Sheet.Content>
+        <Sheet.Header className="text-left p-4 border-b">
+          <Sheet.Title className="text-sm flex items-center gap-2">
             <IconBrandJustd />
             Starter Kit
-          </SheetTitle>
-        </SheetHeader>
-        <SheetBody className="-mx-2 pt-4">
+          </Sheet.Title>
+        </Sheet.Header>
+        <Sheet.Body className="-mx-2 pt-4">
           <NavContent />
-        </SheetBody>
-      </SheetContent>
+        </Sheet.Body>
+      </Sheet.Content>
     </Sheet>
   )
 }
