@@ -5,8 +5,8 @@ const config = withTV({
   darkMode: ['class'],
   content: [
     './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx,js,jsx,md,.mdx}',
-    './src/**/*.{ts,tsx,js,jsx,md,js,jsx,mdx}'
+    './app/**/*.{ts,tsx,js,jsx,md}',
+    './src/**/*.{ts,tsx,js,jsx,md}'
   ],
   theme: {
     container: {
@@ -24,7 +24,7 @@ const config = withTV({
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         toggle: 'hsl(var(--toggle))',
-        background: 'hsl(var(--background))',
+        bg: 'hsl(var(--bg))',
         fg: 'hsl(var(--fg))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
@@ -57,6 +57,10 @@ const config = withTV({
           DEFAULT: 'hsl(var(--info))',
           fg: 'hsl(var(--info-fg))'
         },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          fg: 'hsl(var(--accent-fg))'
+        },
         danger: {
           DEFAULT: 'hsl(var(--danger))',
           fg: 'hsl(var(--danger-fg))'
@@ -74,10 +78,14 @@ const config = withTV({
           fg: 'hsl(var(--overlay-fg))'
         }
       },
+
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
+        '3xl': 'calc(var(--radius) + 7.5px)',
+        '2xl': 'calc(var(--radius) + 5px)',
+        xl: 'calc(var(--radius) + 2.5px)',
+        lg: 'calc(var(--radius))',
+        md: 'calc(var(--radius) - 2.5px)',
+        sm: 'calc(var(--radius) - 5px)'
       },
       keyframes: {
         'accordion-down': {

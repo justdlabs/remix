@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe04e302-a05c-4903-b48a-44acc0ea79b6" name="Changes" comment="" />
+    <list default="true" id="fe04e302-a05c-4903-b48a-44acc0ea79b6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/nav.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/avatar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/checkbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/dropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/dropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/keyboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/keyboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/link.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/popover.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/popover.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/primitive.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/primitive.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/sheet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/toast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/toast.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lockb" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lockb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +74,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-WS-242.20224.342" />
       </set>
     </attachedChunks>
   </component>
@@ -67,7 +89,8 @@
       <workItem from="1723071389436" duration="288000" />
       <workItem from="1723293335251" duration="2846000" />
       <workItem from="1723296194273" duration="3000" />
-      <workItem from="1723557228335" duration="325000" />
+      <workItem from="1723557228335" duration="376000" />
+      <workItem from="1723986600093" duration="139000" />
     </task>
     <servers />
   </component>

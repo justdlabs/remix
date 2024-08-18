@@ -28,7 +28,7 @@ const Toast = ({ ...props }: ToasterProps) => {
         closeButton: true,
         classNames: {
           toast: twJoin(
-            'bg-background ring-1 ring-border dark:ring-inset sm:min-w-[22rem] rounded-xl text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl px-4 py-3 font-normal sm:px-5 sm:py-5',
+            'bg-bg ring-1 ring-border dark:ring-inset sm:min-w-[22rem] rounded-xl text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl px-4 py-3 font-normal sm:px-5 sm:py-5',
             '[&:has([data-icon])_[data-content]]:ml-5',
             '[&:has([data-button])_[data-close-button="true"]]:hidden',
             '[&:not([data-description])_[data-title]]:font-normal',
@@ -37,15 +37,15 @@ const Toast = ({ ...props }: ToasterProps) => {
             '[&>[data-action=true]]:right-4',
             '[&>[data-cancel=true]]:left-4'
           ),
-          icon: 'absolute top-[1.50rem]',
+          icon: 'absolute top-[1rem] sm:top-[1.50rem]',
           content: '[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9',
           error:
-            'bg-danger text-white ring-white/10 text-danger-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
-          info: 'bg-lime-600 ring-white/10 text-lime-50 dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
+            'bg-danger ring-danger-fg/10 text-white ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
+          info: 'bg-info ring-info-fg/10 text-info-fg ring-inset [&>[data-close-button=true]>svg]:text-info-fg [&>[data-close-button=true]:hover]:bg-white/20',
           warning:
-            'bg-warning text-warning-fg ring-white/10 dark:ring-inset [&>[data-close-button=true]>svg]:text-amber-950 [&>[data-close-button=true]:hover]:bg-white/20',
+            'bg-warning text-warning-fg ring-warning-fg/10 ring-inset [&>[data-close-button=true]>svg]:text-amber-950 [&>[data-close-button=true]:hover]:bg-white/20',
           success:
-            'bg-primary text-white ring-white/10 text-primary-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
+            'bg-primary-600 ring-primary-700/50 text-white ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
           cancelButton: buttonStyles({
             className: '',
             size: 'extra-small',
