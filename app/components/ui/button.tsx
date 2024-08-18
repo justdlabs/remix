@@ -4,12 +4,11 @@ import * as React from 'react'
 
 import {
   Button as ButtonPrimitive,
-  type ButtonProps as ButtonPrimitiveProps,
-  composeRenderProps
+  type ButtonProps as ButtonPrimitiveProps
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { focusButtonStyles } from './primitive'
+import { cr, focusButtonStyles } from './primitive'
 
 const buttonStyles = tv(
   {
@@ -21,7 +20,7 @@ const buttonStyles = tv(
     variants: {
       intent: {
         primary: [
-          'text-white [--btn-bg:theme(colors.primary.DEFAULT)] [--btn-border:theme(colors.primary.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]',
+          'text-primary-fg [--btn-bg:theme(colors.primary.DEFAULT)] [--btn-border:theme(colors.primary.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]',
           '[--btn-icon:theme(colors.primary.fg/60%)] active:[--btn-icon:theme(colors.primary.fg/80%)] hover:[--btn-icon:theme(colors.primary.fg/80%)]'
         ],
         secondary: [
@@ -33,9 +32,9 @@ const buttonStyles = tv(
           '[--btn-icon:theme(colors.white/60%)] active:[--btn-icon:theme(colors.white/80%)] hover:[--btn-icon:theme(colors.white/80%)]'
         ],
         'light/dark': [
-          'text-background [--btn-bg:theme(colors.dark)] [--btn-border:theme(colors.dark/90%)] [--btn-hover-overlay:theme(colors.white/10%)]',
+          'text-bg [--btn-bg:theme(colors.dark)] [--btn-border:theme(colors.dark/90%)] [--btn-hover-overlay:theme(colors.white/10%)]',
           'dark:[--btn-bg:white] dark:[--btn-hover-overlay:theme(colors.dark/5%)]',
-          '[--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.background/85%)] hover:[--btn-icon:theme(colors.background/85%)]'
+          '[--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.bg/85%)] hover:[--btn-icon:theme(colors.bg/85%)]'
         ],
         dark: [
           'text-light [--btn-bg:theme(colors.dark)] [--btn-border:theme(colors.dark)] [--btn-hover-overlay:theme(colors.light/2.5%)]',
@@ -62,9 +61,9 @@ const buttonStyles = tv(
         solid:
           'border-transparent bg-[--btn-border] dark:bg-[--btn-bg] before:absolute before:inset-0 before:-z-10 before:bg-[--btn-bg] before:shadow dark:before:hidden dark:border-white/5 after:absolute after:inset-0 after:-z-10 after:shadow-[shadow:inset_0_1px_theme(colors.white/15%)] after:active:bg-[--btn-hover-overlay] after:hover:bg-[--btn-hover-overlay] dark:after:-inset-px before:data-[disabled]:shadow-none after:data-[disabled]:shadow-none',
         outline:
-          'border-border hover:bg-secondary/90 active:bg-secondary/90 text-fg [--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.500)] hover:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.300)] dark:hover:[--btn-icon:theme(colors.zinc.300)]',
+          'border-border hover:bg-secondary/90 active:bg-secondary/90 text-fg [--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.fg)] hover:[--btn-icon:theme(colors.fg)]',
         plain:
-          'border-transparent text-fg active:bg-fg/5 hover:bg-fg/5 [--btn-icon:theme(colors.zinc.500)] active:[--btn-icon:theme(colors.zinc.700)] hover:[--btn-icon:theme(colors.zinc.700)] dark:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]'
+          'border-transparent text-fg pressed:bg-secondary/90 active:bg-secondary/90 hover:bg-secondary/90 [--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.fg)] hover:[--btn-icon:theme(colors.fg)]'
       },
       size: {
         'extra-small':
@@ -144,7 +143,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <ButtonPrimitive
         ref={ref}
         {...props}
-        className={composeRenderProps(className, (className, renderProps) =>
+        className={cr(className, (className, renderProps) =>
           buttonStyles({
             ...renderProps,
             intent,
