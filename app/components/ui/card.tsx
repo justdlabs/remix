@@ -3,15 +3,15 @@
 import * as React from 'react'
 
 import type { HeadingProps, TextProps } from 'react-aria-components'
-import { Heading } from 'react-aria-components'
+import { Heading, Text } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { Description } from './field'
+import { cn } from './primitive'
 
 const card = tv({
   slots: {
     root: [
-      'xrkr bg-bg rounded-lg xkd2 [&:has(table)_.ccvgs8x]:border-t [&:has(table)_.x32]:bg-tertiary [&:has(table)]:overflow-hidden border text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden'
+      'xrkr bg-bg rounded-xl xkd2 [&:has(table)_.ccvgs8x]:border-t [&:has(table)_.x32]:bg-tertiary [&:has(table)]:overflow-hidden border text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden'
     ],
     header: 'flex xlw32 flex-col space-y-1.5 px-6 py-5',
     title: 'text-lg klda font-semibold leading-none tracking-tight',
@@ -28,39 +28,47 @@ const Card = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
   return <div className={root({ className })} {...props} />
 }
 
-interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
   description?: string
+  withoutPadding?: boolean
 }
 
-const CardHeader = ({ className, title, description, children, ...props }: CardHeaderProps) => (
-  <div className={header({ className })} {...props}>
-    {title && <CardTitle>{title}</CardTitle>}
-    {description && <CardDescription>{description}</CardDescription>}
-    {!title && typeof children === 'string' ? <CardTitle>{children}</CardTitle> : children}
+const Header = ({
+  withoutPadding = false,
+  className,
+  title,
+  description,
+  children,
+  ...props
+}: HeaderProps) => (
+  <div className={header({ className: cn(className, withoutPadding && 'px-0 pt-0') })} {...props}>
+    {title && <Title>{title}</Title>}
+    {description && <Description>{description}</Description>}
+    {!title && typeof children === 'string' ? <Title>{children}</Title> : children}
   </div>
 )
 
-const CardTitle = ({ className, ...props }: HeadingProps) => {
+const Title = ({ className, ...props }: HeadingProps) => {
   return <Heading slot="title" className={title({ className })} {...props} />
 }
 
-const CardDescription = (props: TextProps) => {
-  return <Description className={description({ className: props.className })} {...props} />
+const Description = ({ className, ...props }: TextProps) => {
+  return <Text {...props} slot="description" className={description({ className })} {...props} />
 }
 
-const CardContent = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+const Content = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   return <div className={content({ className })} {...props} />
 }
 
-const CardFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   return <div className={footer({ className })} {...props} />
 }
 
-Card.Content = CardContent
-Card.Description = CardDescription
-Card.Footer = CardFooter
-Card.Header = CardHeader
-Card.Title = CardTitle
+Card.Content = Content
+Card.Description = Description
+Card.Footer = Footer
+Card.Header = Header
+Card.Title = Title
 
 export { Card }

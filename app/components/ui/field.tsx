@@ -67,8 +67,19 @@ const Label = ({ className, ...props }: LabelProps) => {
   return <LabelPrimitive {...props} className={label({ className })} />
 }
 
-const Description = ({ className, ...props }: TextProps) => {
-  return <Text {...props} slot="description" className={description({ className })} />
+interface DescriptionProps extends TextProps {
+  isWarning?: boolean
+}
+
+const Description = ({ className, ...props }: DescriptionProps) => {
+  const isWarning = props.isWarning ?? false
+  return (
+    <Text
+      {...props}
+      slot="description"
+      className={description({ className: isWarning ? 'text-warning' : className })}
+    />
+  )
 }
 
 const FieldError = ({ className, ...props }: FieldErrorProps) => {
