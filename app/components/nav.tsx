@@ -37,7 +37,7 @@ export function Nav() {
         <Container>
           <div className="flex items-center justify-between">
             <div className="flex gap-x-8 items-center">
-              <Link aria-label="Home" to="/">
+              <Link aria-label="Go to home" to="/">
                 <IconBrandJustd className="size-5" />
               </Link>
               {!isMobile && (
@@ -51,14 +51,14 @@ export function Nav() {
               <Link
                 className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
                 to="https://github.com/justdlabs/remix"
-                aria-label="Github Repo"
+                aria-label="Go to Github Repo"
               >
                 <IconBrandGithub />
               </Link>
               <Link
                 className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
                 to="https://getjustd.com"
-                aria-label="Github"
+                aria-label="Go to Justd"
               >
                 <IconBrandJustd />
               </Link>
@@ -99,7 +99,7 @@ function NavResponsive() {
             Starter Kit
           </Sheet.Title>
         </Sheet.Header>
-        <Sheet.Body className="-mx-2 pt-4">
+        <Sheet.Body className="pt-4">
           <NavContent />
         </Sheet.Body>
       </Sheet.Content>
@@ -120,12 +120,7 @@ function NavContent() {
         aria-label="Navigation"
       >
         {(item) => (
-          <NavLink
-            target={['Components', 'Colors', 'Icons'].includes(item.name) ? '_blank' : undefined}
-            href={item.url}
-            id={item.url}
-            textValue={item.name}
-          >
+          <NavLink href={item.url} id={item.url}>
             {item.name}
           </NavLink>
         )}
@@ -142,8 +137,9 @@ interface LinkProps extends ListBoxItemProps {
 
 function NavLink({ children, className, ...props }: LinkProps) {
   const isCurrent = useLocation().pathname === props.href
+  const textValue = typeof children === 'string' ? children : undefined
   return (
-    <ListBoxItem className={navStyles({ isCurrent, className })} {...props}>
+    <ListBoxItem textValue={textValue} className={navStyles({ isCurrent, className })} {...props}>
       {children}
       {isCurrent && <CurrentIndicator />}
     </ListBoxItem>
