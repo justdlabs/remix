@@ -15,6 +15,7 @@ import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from 'remix-themes'
 import { Toast } from 'ui'
 
 import { themeSessionResolver } from './sessions.server'
+import { Footer } from '@/components/footer'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request)
@@ -52,6 +53,7 @@ function App() {
         <Toast />
         <Nav />
         <Outlet />
+        <Footer/>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
