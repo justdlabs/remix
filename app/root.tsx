@@ -1,3 +1,4 @@
+import { Footer } from '@/components/footer'
 import { Nav } from '@/components/nav'
 import { RouteProvider } from '@/components/route-provider'
 import stylesheet from '@/tailwind.css?url'
@@ -15,7 +16,6 @@ import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from 'remix-themes'
 import { Toast } from 'ui'
 
 import { themeSessionResolver } from './sessions.server'
-import { Footer } from '@/components/footer'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request)
@@ -53,7 +53,7 @@ function App() {
         <Toast />
         <Nav />
         <Outlet />
-        <Footer/>
+        <Footer />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}

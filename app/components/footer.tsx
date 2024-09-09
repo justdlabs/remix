@@ -1,8 +1,13 @@
 import React from 'react'
 
-import { IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from 'justd-icons'
+import {
+  IconBrandFacebook,
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandTwitter,
+  IconBrandYoutube
+} from 'justd-icons'
 import { Button, Link, TextField } from 'ui'
-
 
 const navigation = {
   solutions: [
@@ -72,7 +77,10 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
                         {item.name}
                       </Link>
                     </li>
@@ -84,7 +92,10 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.support.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
                         {item.name}
                       </Link>
                     </li>
@@ -98,7 +109,10 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
                         {item.name}
                       </Link>
                     </li>
@@ -110,7 +124,10 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
                         {item.name}
                       </Link>
                     </li>
@@ -121,7 +138,9 @@ export function Footer() {
           </div>
           <div className="mt-10 flex flex-col xl:mt-0">
             <div className="flex-1 mb-6">
-              <h3 className="text-sm font-semibold leading-6 text-fg">Subscribe to our newsletter</h3>
+              <h3 className="text-sm font-semibold leading-6 text-fg">
+                Subscribe to our newsletter
+              </h3>
               <p className="mt-2 text-sm leading-6 text-muted-fg">
                 The latest news, articles, and resources, sent to your inbox weekly.
               </p>
