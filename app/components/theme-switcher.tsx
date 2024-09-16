@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button'
 import { IconMoon, IconSun } from 'justd-icons'
 import { Theme, useTheme } from 'remix-themes'
+import { Button } from 'ui'
 
 export function ThemeSwitcher() {
   const [theme, setTheme] = useTheme()

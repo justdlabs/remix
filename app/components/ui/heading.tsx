@@ -1,5 +1,3 @@
-'use client'
-
 import { Heading as HeadingPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 

@@ -1,5 +1,3 @@
-'use client'
-
 import { useHref, useNavigate } from '@remix-run/react'
 import { RouterProvider } from 'react-aria-components'
 import type { NavigateOptions } from 'react-router-dom'
