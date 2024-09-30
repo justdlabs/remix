@@ -5,30 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe04e302-a05c-4903-b48a-44acc0ea79b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/components/ui/touch-target.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/route-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/route-provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/theme-switcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/theme-switcher.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/avatar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/checkbox.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/container.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/dialog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/dropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/dropdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/grid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/heading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/heading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/link.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/loader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/menu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/popover.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/popover.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/primitive.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/primitive.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/sheet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/text-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/text-field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/toast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/toast.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/visually-hidden.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/visually-hidden.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lockb" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lockb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +69,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-WS-242.20224.342" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
       </set>
     </attachedChunks>
   </component>
@@ -100,7 +89,8 @@
       <workItem from="1725161625783" duration="245000" />
       <workItem from="1725681447124" duration="1226000" />
       <workItem from="1725682858705" duration="44000" />
-      <workItem from="1726463021103" duration="268000" />
+      <workItem from="1726463021103" duration="495000" />
+      <workItem from="1727687534178" duration="137000" />
     </task>
     <servers />
   </component>
