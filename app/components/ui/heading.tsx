@@ -1,4 +1,4 @@
-'use client'
+
 
 import { tv } from 'tailwind-variants'
 
