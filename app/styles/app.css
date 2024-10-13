@@ -39,7 +39,7 @@
     --secondary-chart: 76.58% 0.119 263.28;
     --tertiary-chart: 63.25% 0.184 258.64;
     --highlight-chart: 81.17% 0.097 249.1;
-    --accent-chart: 81.17% 0.097 249.1
+    --accent-chart: 81.17% 0.097 249.1;
   }
 
   .dark {
@@ -71,7 +71,7 @@
     --secondary-chart: 72.11% 0.142 253.1;
     --tertiary-chart: 63.25% 0.184 258.64;
     --highlight-chart: 81.17% 0.097 249.1;
-    --accent-chart: 88.29% 0.057 251.91
+    --accent-chart: 88.29% 0.057 251.91;
   }
 }
 

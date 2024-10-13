@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 
 import {
@@ -7,7 +9,6 @@ import {
 import { tv } from 'tailwind-variants'
 
 import { cr, focusButtonStyles } from './primitive'
-import { TouchTarget } from './touch-target'
 
 const buttonStyles = tv(
   {
@@ -75,6 +76,9 @@ const buttonStyles = tv(
       isDisabled: {
         false: 'forced-colors:disabled:text-[GrayText]',
         true: 'cursor-default opacity-60 forced-colors:disabled:text-[GrayText]'
+      },
+      isPending: {
+        true: 'cursor-default'
       }
     },
     defaultVariants: {
@@ -114,9 +118,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       >
         {(values) => (
-          <TouchTarget>
-            {typeof props.children === 'function' ? props.children(values) : props.children}
-          </TouchTarget>
+          <>{typeof props.children === 'function' ? props.children(values) : props.children}</>
         )}
       </ButtonPrimitive>
     )
