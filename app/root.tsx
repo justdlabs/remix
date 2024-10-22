@@ -1,21 +1,14 @@
-import { Footer } from '@/components/footer'
-import { Nav } from '@/components/nav'
-import { RouteProvider } from '@/components/route-provider'
-import stylesheet from '@/tailwind.css?url'
-import { LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLoaderData
-} from '@remix-run/react'
-import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from 'remix-themes'
-import { Toast } from 'ui'
+import { AppNavbar } from "@/app-navbar"
+import { Footer } from "@/components/footer"
+import { Nav } from "@/components/nav"
+import { RouteProvider } from "@/components/route-provider"
+import stylesheet from "@/tailwind.css?url"
+import { LinksFunction, LoaderFunctionArgs } from "@remix-run/node"
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "@remix-run/react"
+import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes"
+import { Toast } from "ui"
 
-import { themeSessionResolver } from './sessions.server'
+import { themeSessionResolver } from "./sessions.server"
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request)
@@ -24,7 +17,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   }
 }
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: stylesheet }]
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }]
 
 export default function AppWithProviders() {
   const data = useLoaderData<typeof loader>()
@@ -41,7 +34,7 @@ function App() {
   const data = useLoaderData<typeof loader>()
   const [theme] = useTheme()
   return (
-    <html lang="en" data-theme={theme ?? ''} className={theme ?? ''}>
+    <html lang="en" data-theme={theme ?? ""} className={theme ?? ""}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -51,12 +44,11 @@ function App() {
       </head>
       <body className="antialiased min-h-svh bg-tertiary font-sans">
         <Toast />
-        <Nav />
-        <Outlet />
+        <AppNavbar />
         <Footer />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
+        {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
   )

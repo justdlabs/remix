@@ -21,7 +21,7 @@
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
-    "framer-motion": "^11.11.8",
+    "framer-motion": "^11.11.9",
     "input-otp": "^1.2.4",
     "isbot": "^4.4.0",
     "justd-icons": "^1.5.0",

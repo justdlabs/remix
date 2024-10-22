@@ -1,62 +1,56 @@
-import React from 'react'
+import React from "react"
 
-import {
-  IconBrandFacebook,
-  IconBrandGithub,
-  IconBrandInstagram,
-  IconBrandTwitter,
-  IconBrandYoutube
-} from 'justd-icons'
-import { Button, Link, TextField } from 'ui'
+import { IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from "justd-icons"
+import { Button, Link, TextField } from "ui"
 
 const navigation = {
   solutions: [
-    { name: 'Marketing', href: '#' },
-    { name: 'Analytics', href: '#' },
-    { name: 'Commerce', href: '#' },
-    { name: 'Insights', href: '#' }
+    { name: "Marketing", href: "#" },
+    { name: "Analytics", href: "#" },
+    { name: "Commerce", href: "#" },
+    { name: "Insights", href: "#" }
   ],
   support: [
-    { name: 'Pricing', href: '#' },
-    { name: 'Documentation', href: '#' },
-    { name: 'Guides', href: '#' },
-    { name: 'API Status', href: '#' }
+    { name: "Pricing", href: "#" },
+    { name: "Documentation", href: "#" },
+    { name: "Guides", href: "#" },
+    { name: "API Status", href: "#" }
   ],
   company: [
-    { name: 'About', href: '/about' },
-    { name: 'Blog', href: '#' },
-    { name: 'Jobs', href: '#' },
-    { name: 'Press', href: '#' },
-    { name: 'Partners', href: '#' }
+    { name: "About", href: "/about" },
+    { name: "Blog", href: "#" },
+    { name: "Jobs", href: "#" },
+    { name: "Press", href: "#" },
+    { name: "Partners", href: "#" }
   ],
   legal: [
-    { name: 'Privacy', href: '/privacy-policy' },
-    { name: 'Terms', href: '/terms-of-service' }
+    { name: "Privacy", href: "/privacy-policy" },
+    { name: "Terms", href: "/terms-of-service" }
   ],
   social: [
     {
-      name: 'Facebook',
-      href: '#',
+      name: "Facebook",
+      href: "#",
       icon: <IconBrandFacebook />
     },
     {
-      name: 'Instagram',
-      href: '#',
+      name: "Instagram",
+      href: "#",
       icon: <IconBrandInstagram />
     },
     {
-      name: 'Twitter',
-      href: '#',
+      name: "Twitter",
+      href: "#",
       icon: <IconBrandTwitter />
     },
     {
-      name: 'GitHub',
-      href: '#',
+      name: "GitHub",
+      href: "#",
       icon: <IconBrandGithub />
     },
     {
-      name: 'YouTube',
-      href: '#',
+      name: "YouTube",
+      href: "#",
       icon: <IconBrandYoutube />
     }
   ]
@@ -77,10 +71,7 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-muted-fg hover:text-fg"
-                      >
+                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
                         {item.name}
                       </Link>
                     </li>
@@ -92,10 +83,7 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.support.map((item) => (
                     <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-muted-fg hover:text-fg"
-                      >
+                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
                         {item.name}
                       </Link>
                     </li>
@@ -109,10 +97,7 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-muted-fg hover:text-fg"
-                      >
+                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
                         {item.name}
                       </Link>
                     </li>
@@ -124,10 +109,7 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-muted-fg hover:text-fg"
-                      >
+                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
                         {item.name}
                       </Link>
                     </li>
@@ -138,9 +120,7 @@ export function Footer() {
           </div>
           <div className="mt-10 flex flex-col xl:mt-0">
             <div className="flex-1 mb-6">
-              <h3 className="text-sm font-semibold leading-6 text-fg">
-                Subscribe to our newsletter
-              </h3>
+              <h3 className="text-sm font-semibold leading-6 text-fg">Subscribe to our newsletter</h3>
               <p className="mt-2 text-sm leading-6 text-muted-fg">
                 The latest news, articles, and resources, sent to your inbox weekly.
               </p>
@@ -175,7 +155,7 @@ export function Footer() {
             ))}
           </div>
           <p className="mt-8 text-xs leading-5 text-muted-fg md:order-1 md:mt-0">
-            &copy; 2024 Remix Starter Kit by{' '}
+            &copy; 2024 Remix Starter Kit by{" "}
             <Link target="_blank" href="https://getjustd.com" className="font-semibold text-fg">
               justd
             </Link>

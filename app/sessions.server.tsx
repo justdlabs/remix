@@ -1,16 +1,16 @@
-import { createCookieSessionStorage } from '@remix-run/node'
-import { createThemeSessionResolver } from 'remix-themes'
+import { createCookieSessionStorage } from "@remix-run/node"
+import { createThemeSessionResolver } from "remix-themes"
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === "production"
 
 const sessionStorage = createCookieSessionStorage({
   cookie: {
-    name: 'theme',
-    path: '/',
+    name: "theme",
+    path: "/",
     httpOnly: true,
-    sameSite: 'lax',
-    secrets: ['s3cr3t'],
-    ...(isProduction ? { domain: 'your-production-domain.com', secure: true } : {})
+    sameSite: "lax",
+    secrets: ["s3cr3t"],
+    ...(isProduction ? { domain: "your-production-domain.com", secure: true } : {})
   }
 })
 

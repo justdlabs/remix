@@ -1,6 +1,6 @@
-import { Outlet } from '@remix-run/react'
-import { IconBrandJustd } from 'justd-icons'
-import { Link } from 'ui'
+import { Outlet } from "@remix-run/react"
+import { IconBrandJustd } from "justd-icons"
+import { Link } from "ui"
 
 export default function Layout() {
   return (

@@ -1,34 +1,34 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react"
 
-import { ThemeSwitcher } from '@/components/theme-switcher'
-import { Link, useLocation } from '@remix-run/react'
-import { LayoutGroup, motion } from 'framer-motion'
-import { IconBrandGithub, IconBrandJustd } from 'justd-icons'
-import { ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
-import { tv } from 'tailwind-variants'
-import { Button, buttonStyles, Container, Sheet, useMediaQuery } from 'ui'
+import { ThemeSwitcher } from "@/components/theme-switcher"
+import { Link, useLocation } from "@remix-run/react"
+import { LayoutGroup, motion } from "framer-motion"
+import { IconBrandGithub, IconBrandJustd } from "justd-icons"
+import { ListBox, ListBoxItem, ListBoxItemProps } from "react-aria-components"
+import { tv } from "tailwind-variants"
+import { Button, buttonStyles, Container, Sheet, useMediaQuery } from "ui"
 
 const navigations = [
   {
-    name: 'Home',
-    url: '/'
+    name: "Home",
+    url: "/"
   },
   {
-    name: 'About',
-    url: '/about'
+    name: "About",
+    url: "/about"
   },
   {
-    name: 'Contact',
-    url: '/contact'
+    name: "Contact",
+    url: "/contact"
   },
   {
-    name: 'Login',
-    url: '/login'
+    name: "Login",
+    url: "/login"
   }
 ]
 
 export function Nav() {
-  const isMobile = useMediaQuery('(max-width: 640px)')
+  const isMobile = useMediaQuery("(max-width: 640px)")
   return (
     <main>
       <nav className="sm:py-1 py-2.5 border-b bg-bg">
@@ -47,14 +47,14 @@ export function Nav() {
             <div className="flex items-center gap-2 justify-end">
               <ThemeSwitcher />
               <Link
-                className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                className={buttonStyles({ appearance: "outline", size: "square-petite" })}
                 to="https://github.com/justdlabs/remix"
                 aria-label="Go to Github Repo"
               >
                 <IconBrandGithub />
               </Link>
               <Link
-                className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                className={buttonStyles({ appearance: "outline", size: "square-petite" })}
                 to="https://getjustd.com"
                 aria-label="Go to Justd"
               >
@@ -70,11 +70,11 @@ export function Nav() {
 }
 
 const navStyles = tv({
-  base: 'text-sm relative py-0 sm:py-4 inline-flex focus:outline-none focus-visible:text-fg font-medium',
+  base: "text-sm relative py-0 sm:py-4 inline-flex focus:outline-none focus-visible:text-fg font-medium",
   variants: {
     isCurrent: {
-      true: 'text-fg',
-      false: 'text-muted-fg'
+      true: "text-fg",
+      false: "text-muted-fg"
     }
   }
 })
@@ -106,13 +106,13 @@ function NavResponsive() {
 }
 
 function NavContent() {
-  const isMobile = useMediaQuery('(max-width: 640px)')
+  const isMobile = useMediaQuery("(max-width: 640px)")
   const id = React.useId()
   return (
     <LayoutGroup id={id}>
       <ListBox
-        orientation={isMobile ? 'vertical' : 'horizontal'}
-        layout={isMobile ? 'stack' : 'grid'}
+        orientation={isMobile ? "vertical" : "horizontal"}
+        layout={isMobile ? "stack" : "grid"}
         className="flex relative sm:flex-row flex-col sm:items-center gap-3 sm:gap-6"
         items={navigations}
         aria-label="Navigation"
@@ -135,7 +135,7 @@ interface LinkProps extends ListBoxItemProps {
 
 function NavLink({ children, className, ...props }: LinkProps) {
   const isCurrent = useLocation().pathname === props.href
-  const textValue = typeof children === 'string' ? children : undefined
+  const textValue = typeof children === "string" ? children : undefined
   return (
     <ListBoxItem textValue={textValue} className={navStyles({ isCurrent, className })} {...props}>
       {children}

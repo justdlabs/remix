@@ -1,13 +1,13 @@
-import { FormEvent } from 'react'
+import { FormEvent } from "react"
 
-import type { MetaFunction } from '@remix-run/node'
-import { toast } from 'sonner'
-import { Button, Card, Checkbox, Form, Link, TextField } from 'ui'
+import type { MetaFunction } from "@remix-run/node"
+import { toast } from "sonner"
+import { Button, Card, Checkbox, Form, Link, TextField } from "ui"
 
 export const meta: MetaFunction = () => {
   return [
     {
-      title: 'Login | Just D. Starter Kit'
+      title: "Login | Justd Remix Starter Kit"
     }
   ]
 }
@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
 export default function LoginForm() {
   const submit = (e: FormEvent) => {
     e.preventDefault()
-    toast.success('Login Successful')
+    toast.success("Login Successful")
   }
   return (
     <Card className="sm:border-border border-transparent sm:rounded-xl rounded-none border-y-border">

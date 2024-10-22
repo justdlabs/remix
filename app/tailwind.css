@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 .dark,
-[data-theme='dark'] {
+[data-theme="dark"] {
   color-scheme: dark;
 }
 
 .light,
-[data-theme='light'] {
+[data-theme="light"] {
   color-scheme: light;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   background-color: hsl(var(--background));
   color: hsl(var(--fg));
   transition:
@@ -20,7 +20,7 @@
     color 2s ease;
 }
 
-[data-theme='light'] {
+[data-theme="light"] {
   background-color: hsl(var(--background));
   color: hsl(var(--fg));
   transition:
@@ -123,15 +123,15 @@
 
   * {
     @apply border-border;
-    font-feature-settings: 'cv11', 'ss01';
-    font-variation-settings: 'opsz' 850;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 850;
   }
 
   body {
     @apply bg-bg text-fg;
     font-feature-settings:
-      'rlig' 1,
-      'calt' 1;
+      "rlig" 1,
+      "calt" 1;
   }
 }
 

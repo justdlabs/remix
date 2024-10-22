@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe04e302-a05c-4903-b48a-44acc0ea79b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/app-navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/separator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/nav.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/route-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/route-provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/theme-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/theme-provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/theme-switcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/theme-switcher.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/avatar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/card.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/checkbox.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/container.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/dialog.tsx" afterDir="false" />
@@ -16,6 +27,8 @@
       <change beforePath="$PROJECT_DIR$/app/components/ui/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/form.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/grid.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/heading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/heading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/keyboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/keyboard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/link.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/loader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/menu.tsx" afterDir="false" />
@@ -26,6 +39,22 @@
       <change beforePath="$PROJECT_DIR$/app/components/ui/text-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/text-field.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/toast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/toast.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/visually-hidden.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/visually-hidden.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/root.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/_auth.login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/_auth.login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/_auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/_auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/_index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/_index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/about.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/about.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/action.set-theme.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/action.set-theme.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/contact.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/contact.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/sessions.server.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/sessions.server.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/styles/sonner.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/sonner.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/classes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/classes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lockb" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lockb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +135,7 @@
       <workItem from="1728810373074" duration="138000" />
       <workItem from="1728810620533" duration="140000" />
       <workItem from="1728811018555" duration="12000" />
+      <workItem from="1729589508717" duration="931000" />
     </task>
     <servers />
   </component>
