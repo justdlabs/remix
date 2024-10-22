@@ -1,10 +1,9 @@
 import { AppNavbar } from "@/app-navbar"
 import { Footer } from "@/components/footer"
-import { Nav } from "@/components/nav"
 import { RouteProvider } from "@/components/route-provider"
 import stylesheet from "@/tailwind.css?url"
 import { LinksFunction, LoaderFunctionArgs } from "@remix-run/node"
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "@remix-run/react"
+import { Links, LiveReload, Meta, Scripts, ScrollRestoration, useLoaderData } from "@remix-run/react"
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes"
 import { Toast } from "ui"
 
