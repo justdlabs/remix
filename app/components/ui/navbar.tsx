@@ -104,15 +104,21 @@ const Navbar = ({
 }
 
 const navStyles = tv({
-  base: "hidden h-[--navbar-height] [--navbar-height:3.5rem] px-4 group peer lg:flex items-center w-full max-w-screen-2xl mx-auto",
+  base: [
+    "hidden h-[--navbar-height] [--navbar-height:3.5rem] px-4 group peer lg:flex items-center w-full",
+    "[&>div]:max-w-[1680px] lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
+  ],
   variants: {
     isSticky: {
       true: "sticky top-0"
     },
     intent: {
-      floating: "bg-tertiary shadow-sm border rounded-xl sm:px-4",
+      floating: "bg-tertiary max-w-[1680px] mx-auto shadow-sm border rounded-xl sm:px-4",
       navbar: "bg-tertiary shadow-sm border-b sm:px-6",
-      inset: "bg-secondary dark:bg-bg sm:px-6"
+      inset: [
+        "bg-secondary mx-auto dark:bg-bg sm:px-6",
+        "[&>div]:max-w-[1680px] lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
+      ]
     }
   }
 })
@@ -146,7 +152,7 @@ const Nav = ({ className, ...props }: NavbarProps) => {
 
   return (
     <div className={navStyles({ isSticky, intent, className })} {...props}>
-      {props.children}
+      <div>{props.children}</div>
     </div>
   )
 }
@@ -179,7 +185,11 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
     <LayoutGroup id={id}>
       <div
         data-slot="navbar-section"
-        className={cn("flex", isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center", className)}
+        className={cn(
+          "flex",
+          isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center",
+          className
+        )}
         {...props}
       >
         {props.children}
@@ -211,7 +221,9 @@ const Item = ({ className, isCurrent, ...props }: ItemProps) => {
     <Link
       slot="navbar-item"
       aria-current={isCurrent ? "page" : undefined}
-      className={cr(className, (className, ...renderProps) => linkStyles({ ...renderProps, isCurrent, className }))}
+      className={cr(className, (className, ...renderProps) =>
+        linkStyles({ ...renderProps, isCurrent, className })
+      )}
       {...props}
     >
       {(values) => (
@@ -267,7 +279,8 @@ const insetStyles = tv({
   variants: {
     intent: {
       floating: "",
-      inset: "bg-tertiary lg:rounded-lg lg:shadow-sm lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
+      inset:
+        "bg-tertiary lg:rounded-lg lg:shadow-sm lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
       navbar: ""
     }
   }
@@ -276,7 +289,10 @@ const insetStyles = tv({
 const Inset = ({ className, ...props }: React.ComponentProps<"div">) => {
   const { intent } = useNavbar()
   return (
-    <main data-intent={intent} className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 lg:px-2", className)}>
+    <main
+      data-intent={intent}
+      className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 lg:px-2", className)}
+    >
       <div className={insetStyles({ intent, className })}>
         <Container>{props.children}</Container>
       </div>
