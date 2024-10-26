@@ -185,11 +185,7 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
     <LayoutGroup id={id}>
       <div
         data-slot="navbar-section"
-        className={cn(
-          "flex",
-          isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center",
-          className
-        )}
+        className={cn("flex", isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center", className)}
         {...props}
       >
         {props.children}
@@ -198,7 +194,7 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
   )
 }
 
-const linkStyles = tv({
+const navbarItemStyles = tv({
   base: [
     "relative text-sm px-2 flex items-center gap-x-2 [&>[data-slot=icon]]:-mx-0.5 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] transition-colors",
     "disabled:opacity-60 disabled:cursor-default",
@@ -222,7 +218,7 @@ const Item = ({ className, isCurrent, ...props }: ItemProps) => {
       slot="navbar-item"
       aria-current={isCurrent ? "page" : undefined}
       className={cr(className, (className, ...renderProps) =>
-        linkStyles({ ...renderProps, isCurrent, className })
+        navbarItemStyles({ ...renderProps, isCurrent, className })
       )}
       {...props}
     >
@@ -279,8 +275,7 @@ const insetStyles = tv({
   variants: {
     intent: {
       floating: "",
-      inset:
-        "bg-tertiary lg:rounded-lg lg:shadow-sm lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
+      inset: "bg-tertiary lg:rounded-lg lg:shadow-sm lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
       navbar: ""
     }
   }
@@ -289,10 +284,7 @@ const insetStyles = tv({
 const Inset = ({ className, ...props }: React.ComponentProps<"div">) => {
   const { intent } = useNavbar()
   return (
-    <main
-      data-intent={intent}
-      className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 lg:px-2", className)}
-    >
+    <main data-intent={intent} className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 lg:px-2", className)}>
       <div className={insetStyles({ intent, className })}>
         <Container>{props.children}</Container>
       </div>
@@ -309,4 +301,4 @@ Navbar.Logo = Logo
 Navbar.Item = Item
 Navbar.Section = Section
 
-export { Navbar }
+export { Navbar, navbarItemStyles }
