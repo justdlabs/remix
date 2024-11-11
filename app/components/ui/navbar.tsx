@@ -2,13 +2,11 @@ import * as React from "react"
 
 import { LayoutGroup, motion } from "framer-motion"
 import { IconHamburger } from "justd-icons"
-import type { LinkProps } from "react-aria-components"
-import { Link } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Button } from "./button"
 import { Container } from "./container"
-import { cn, cr, useMediaQuery } from "./primitive"
+import { cn, useMediaQuery } from "./primitive"
 import { Sheet } from "./sheet"
 
 type NavbarOptions = {
