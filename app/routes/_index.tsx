@@ -46,7 +46,7 @@ export default function Index() {
           </Grid.Item>
 
           <Grid.Item>
-            <Link target="_blank" href="https://getjustd.com/colors" aria-label="Colors" />
+            <a target="_blank" href="https://getjustd.com/colors" aria-label="Colors" />
             <Card>
               <Card.Header>
                 <Card.Title>Colors</Card.Title>
@@ -59,7 +59,7 @@ export default function Index() {
           </Grid.Item>
 
           <Grid.Item>
-            <Link target="_blank" href="https://getjustd.com/icons" aria-label="Icons" />
+            <a target="_blank" href="https://getjustd.com/icons" aria-label="Icons" />
             <Card>
               <Card.Header>
                 <Card.Title>Icons</Card.Title>

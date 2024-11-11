@@ -207,40 +207,34 @@ const navbarItemStyles = tv({
   }
 })
 
-interface ItemProps extends LinkProps {
+interface ItemProps extends React.ComponentProps<"a"> {
   isCurrent?: boolean
 }
 
 const Item = ({ className, isCurrent, ...props }: ItemProps) => {
   const { intent, isCompact } = useNavbar()
   return (
-    <Link
+    <a
       slot="navbar-item"
       aria-current={isCurrent ? "page" : undefined}
-      className={cr(className, (className, ...renderProps) =>
-        navbarItemStyles({ ...renderProps, isCurrent, className })
-      )}
+      className={navbarItemStyles({ isCurrent, className })}
       {...props}
     >
-      {(values) => (
-        <>
-          {typeof props.children === "function" ? props.children(values) : props.children}
+      {props.children}
 
-          {(isCurrent || values.isCurrent) && !isCompact && intent !== "floating" && (
-            <motion.span
-              layoutId="current-indicator"
-              className="absolute inset-x-2 bottom-[calc(var(--navbar-height)*-0.33)] h-0.5 rounded-full bg-fg"
-            />
-          )}
-        </>
+      {isCurrent && !isCompact && intent !== "floating" && (
+        <motion.span
+          layoutId="current-indicator"
+          className="absolute inset-x-2 bottom-[calc(var(--navbar-height)*-0.33)] h-0.5 rounded-full bg-fg"
+        />
       )}
-    </Link>
+    </a>
   )
 }
 
-const Logo = ({ className, ...props }: LinkProps) => {
+const Logo = ({ className, ...props }: React.ComponentProps<"a">) => {
   return (
-    <Link
+    <a
       className={cn(
         "lg:mr-4 focus:outline-none flex items-center gap-x-2 focus-visible:outline-1 focus-visible:outline-primary px-2 py-4 lg:px-0 lg:py-0 text-fg",
         className

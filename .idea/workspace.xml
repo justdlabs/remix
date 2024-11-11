@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fe04e302-a05c-4903-b48a-44acc0ea79b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app-navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-navbar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/navbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +62,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23726.96" />
       </set>
     </attachedChunks>
   </component>
@@ -92,7 +91,8 @@
       <workItem from="1729591744434" duration="1213000" />
       <workItem from="1729598080884" duration="47000" />
       <workItem from="1729763840738" duration="30000" />
-      <workItem from="1729939761588" duration="73000" />
+      <workItem from="1729939761588" duration="540000" />
+      <workItem from="1731368135154" duration="101000" />
     </task>
     <servers />
   </component>
