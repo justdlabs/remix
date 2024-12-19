@@ -45,7 +45,8 @@
     "rustywind": "^0.23.1",
     "typescript": "^5.7.2",
     "vite": "^6.0.3",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite-tsconfig-paths": "^4.3.2",
+    "wrangler": "^3.98.0"
   },
   "engines": {
     "node": ">=18.0.0"
