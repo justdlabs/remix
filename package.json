@@ -1,13 +1,14 @@
 {
-  "name": "test",
+  "name": "justd-remix-sk",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
+    "deploy": "bun run build && wrangler pages deploy",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "netlify serve",
+    "start": "wrangler pages dev ./build/client",
     "typecheck": "react-router typegen && tsc",
     "tailwind:format": "rustywind --write .",
     "format": "bun run tailwind:format && biome check --write",

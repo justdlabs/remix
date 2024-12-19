@@ -1,0 +1,4 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "justd-remix-sk"
+compatibility_date = "2024-12-18"
+pages_build_output_dir = "./build/client"
