@@ -72,9 +72,6 @@ export function AppNavbar() {
           >
             <IconBrandJustd />
           </Link>
-          <Link className={buttonStyles({ appearance: "outline", size: "small" })} href="/login">
-            Login
-          </Link>
         </Navbar.Section>
       </Navbar.Nav>
 
@@ -103,9 +100,6 @@ export function AppNavbar() {
             aria-label="Go to Justd"
           >
             <IconBrandJustd />
-          </Link>
-          <Link className={buttonStyles({ appearance: "outline", size: "small" })} href="/login">
-            Login
           </Link>
         </Navbar.Flex>
       </Navbar.Compact>

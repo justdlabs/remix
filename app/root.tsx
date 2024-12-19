@@ -1,18 +1,11 @@
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import {
-  Links,
-  Meta, Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLoaderData,
-  useLocation
-} from "@remix-run/react"
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "@remix-run/react";
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes";
 import { Toast } from "ui";
+import { AppNavbar } from "~/app-navbar";
+import { Footer } from "~/components/footer";
 import stylesheet from "~/tailwind.css?url";
 import { themeSessionResolver } from "./sessions.server";
-import GuestLayout from "~/layouts/guest-layout"
-import AppLayout from "~/layouts/app-layout"
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request);
@@ -33,24 +26,20 @@ export const links: LinksFunction = () => [
   },
 ];
 
-export default function AppWithProviders() {
+export default function App() {
   const data = useLoaderData<typeof loader>();
 
   return (
     <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
-      <RootLayout theme={data.theme} />
+      <RootLayout theme={data.theme}>
+        <Outlet />
+      </RootLayout>
     </ThemeProvider>
   );
 }
 
-function RootLayout({ theme }: { theme: string | null }) {
+function RootLayout({ theme, children }: { theme: string | null; children: React.ReactNode }) {
   const [currentTheme] = useTheme();
-  const location = useLocation();
-
-  const guestRoutes = ["/login", "/signup", "/forgot-password"];
-  const isGuestRoute = guestRoutes.some((route) =>
-    location.pathname.startsWith(route)
-  );
 
   return (
     <html
@@ -58,19 +47,21 @@ function RootLayout({ theme }: { theme: string | null }) {
       data-theme={currentTheme ?? theme ?? ""}
       className={currentTheme ?? theme ?? ""}
     >
-    <head>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <Meta />
-      <PreventFlashOnWrongTheme ssrTheme={Boolean(theme)} />
-      <Links />
-    </head>
-    <body className="font-sans antialiased min-h-svh bg-tertiary">
-    <Toast />
-    {isGuestRoute ? <GuestLayout><Outlet /></GuestLayout> : <AppLayout><Outlet /></AppLayout>}
-    <ScrollRestoration />
-    <Scripts />
-    </body>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <Meta />
+        <PreventFlashOnWrongTheme ssrTheme={Boolean(theme)} />
+        <Links />
+      </head>
+      <body className="font-sans antialiased min-h-svh bg-tertiary">
+        <Toast />
+        <AppNavbar />
+        {children}
+        <Footer />
+        <ScrollRestoration />
+        <Scripts />
+      </body>
     </html>
   );
 }
