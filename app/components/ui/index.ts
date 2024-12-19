@@ -18,3 +18,5 @@ export * from "./separator";
 export * from "./text-field";
 export * from "./toast";
 export * from "./primitive";
+export * from "./checkbox";
+export * from "./popover";

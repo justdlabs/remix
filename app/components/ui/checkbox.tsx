@@ -10,8 +10,8 @@ import {
   composeRenderProps,
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
-import { cn } from "~/utils/classes";
 
+import { cn } from "~/utils/classes";
 import { Description, FieldError, Label } from "./field";
 import { composeTailwindRenderProps } from "./primitive";
 

@@ -14,10 +14,10 @@ import {
   composeRenderProps,
   useSlottedContext,
 } from "react-aria-components";
-import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
-import { useMediaQuery } from "~/utils/use-media-query";
 
+import { twMerge } from "tailwind-merge";
+import { useMediaQuery } from "~/utils/use-media-query";
 import { Dialog } from "./dialog";
 
 const Popover = ({ children, ...props }: DialogTriggerProps) => {
