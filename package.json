@@ -9,8 +9,11 @@
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "wrangler pages dev ./build/client",
-    "typecheck": "react-router typegen && tsc",
-    "tailwind:format": "rustywind --write .",
+    "typecheck": "tsc",
+    "typegen": "wrangler types",
+    "preview": "bun run build && wrangler pages dev",
+    "cf-typegen": "wrangler types",
+    "tailwind:format": "rustywind --write ./app",
     "format": "bun run tailwind:format && biome check --write",
     "format:unsafe": "biome check --unsafe --write"
   },
