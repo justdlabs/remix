@@ -1,54 +1,57 @@
-import * as React from "react"
+import { createContext, use, useCallback, useId, useMemo, useState } from "react";
 
-import { LayoutGroup, motion } from "framer-motion"
-import { IconHamburger } from "justd-icons"
-import { tv } from "tailwind-variants"
+import { IconHamburger } from "justd-icons";
+import { LayoutGroup, motion } from "motion/react";
+import type { LinkProps } from "react-aria-components";
+import { Link, composeRenderProps } from "react-aria-components";
+import { tv } from "tailwind-variants";
+import { cn } from "~/utils/classes";
+import { useMediaQuery } from "~/utils/use-media-query";
 
-import { Button } from "./button"
-import { Container } from "./container"
-import { cn, useMediaQuery } from "./primitive"
-import { Sheet } from "./sheet"
+import { Button } from "./button";
+import { composeTailwindRenderProps } from "./primitive";
+import { Sheet } from "./sheet";
 
 type NavbarOptions = {
-  side?: "left" | "right"
-  isSticky?: boolean
-  intent?: "navbar" | "floating" | "inset"
-}
+  side?: "left" | "right";
+  isSticky?: boolean;
+  intent?: "navbar" | "floating" | "inset";
+};
 
 type NavbarContextProps = {
-  open: boolean
-  setOpen: (open: boolean) => void
-  isCompact: boolean
-  toggleNavbar: () => void
-} & NavbarOptions
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  isCompact: boolean;
+  toggleNavbar: () => void;
+} & NavbarOptions;
 
-const NavbarContext = React.createContext<NavbarContextProps | null>(null)
+const NavbarContext = createContext<NavbarContextProps | null>(null);
 
 function useNavbar() {
-  const context = React.useContext(NavbarContext)
+  const context = use(NavbarContext);
   if (!context) {
-    throw new Error("useNavbar must be used within a Navbar.")
+    throw new Error("useNavbar must be used within a Navbar.");
   }
 
-  return context
+  return context;
 }
 
 interface NavbarProviderProps extends React.ComponentProps<"header">, NavbarOptions {
-  defaultOpen?: boolean
-  isOpen?: boolean
-  onOpenChange?: (open: boolean) => void
+  defaultOpen?: boolean;
+  isOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
 const navbarStyles = tv({
-  base: "relative isolate flex w-full min-h-svh flex-col",
+  base: "relative @container isolate flex w-full flex-col",
   variants: {
     intent: {
-      floating: "pt-2 px-2",
+      floating: "pt-2 px-2.5",
       navbar: "",
-      inset: "bg-secondary dark:bg-bg"
-    }
-  }
-})
+      inset: "bg-bg min-h-svh",
+    },
+  },
+});
 
 const Navbar = ({
   children,
@@ -61,26 +64,26 @@ const Navbar = ({
   intent = "navbar",
   ...props
 }: NavbarProviderProps) => {
-  const isCompact = useMediaQuery("(max-width: 600px)")
-  const [_open, _setOpen] = React.useState(defaultOpen)
-  const open = openProp ?? _open
+  const isCompact = useMediaQuery("(max-width: 768px)");
+  const [_open, _setOpen] = useState(defaultOpen);
+  const open = openProp ?? _open;
 
-  const setOpen = React.useCallback(
+  const setOpen = useCallback(
     (value: boolean | ((value: boolean) => boolean)) => {
       if (setOpenProp) {
-        return setOpenProp?.(typeof value === "function" ? value(open) : value)
+        return setOpenProp?.(typeof value === "function" ? value(open) : value);
       }
 
-      _setOpen(value)
+      _setOpen(value);
     },
-    [setOpenProp, open]
-  )
+    [setOpenProp, open],
+  );
 
-  const toggleNavbar = React.useCallback(() => {
-    setOpen((open) => !open)
-  }, [isCompact, setOpen])
+  const toggleNavbar = useCallback(() => {
+    setOpen((open) => !open);
+  }, [setOpen]);
 
-  const contextValue = React.useMemo<NavbarContextProps>(
+  const contextValue = useMemo<NavbarContextProps>(
     () => ({
       open,
       setOpen,
@@ -88,47 +91,52 @@ const Navbar = ({
       toggleNavbar,
       intent,
       isSticky,
-      side
+      side,
     }),
-    [open, setOpen, isCompact, toggleNavbar, intent, isSticky, side]
-  )
+    [open, setOpen, isCompact, toggleNavbar, intent, isSticky, side],
+  );
   return (
-    <NavbarContext.Provider value={contextValue}>
-      <header data-intent={intent} className={navbarStyles({ intent, className })} {...props}>
+    <NavbarContext value={contextValue}>
+      <header
+        data-navbar-intent={intent}
+        className={navbarStyles({ intent, className })}
+        {...props}
+      >
         {children}
       </header>
-    </NavbarContext.Provider>
-  )
-}
+    </NavbarContext>
+  );
+};
 
 const navStyles = tv({
   base: [
-    "hidden h-[--navbar-height] [--navbar-height:3.5rem] px-4 group peer lg:flex items-center w-full",
-    "[&>div]:max-w-[1680px] lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
+    "hidden h-(--navbar-height) [--navbar-height:3.5rem] px-4 group peer md:flex items-center w-full",
+    "[&>div]:max-w-[1680px] md:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto",
   ],
   variants: {
     isSticky: {
-      true: "sticky top-0"
+      true: "sticky z-40 top-0",
     },
     intent: {
-      floating: "bg-tertiary max-w-[1680px] mx-auto shadow-sm border rounded-xl sm:px-4",
-      navbar: "bg-tertiary shadow-sm border-b sm:px-6",
+      floating:
+        "bg-navbar text-navbar-fg w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl) mx-auto border rounded-xl md:px-4",
+      navbar: "bg-navbar text-navbar-fg border-b md:px-6",
       inset: [
-        "bg-secondary mx-auto dark:bg-bg sm:px-6",
-        "[&>div]:max-w-[1680px] lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
-      ]
-    }
-  }
-})
+        "mx-auto dark:md:px-6",
+        "2xl:[&>div]:max-w-(--breakpoint-2xl) md:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto",
+      ],
+    },
+  },
+});
 
 interface NavbarProps extends React.ComponentProps<"div"> {
-  intent?: "navbar" | "floating" | "inset"
-  isSticky?: boolean
-  side?: "left" | "right"
+  intent?: "navbar" | "floating" | "inset";
+  isSticky?: boolean;
+  side?: "left" | "right";
 }
 
 const Nav = ({ className, ...props }: NavbarProps) => {
-  const { isCompact, side, intent, isSticky, open, setOpen } = useNavbar()
+  const { isCompact, side, intent, isSticky, open, setOpen } = useNavbar();
 
   if (isCompact) {
     return (
@@ -138,159 +146,172 @@ const Nav = ({ className, ...props }: NavbarProps) => {
           aria-label="Compact Navbar"
           data-navbar="compact"
           classNames={{
-            content: "text-fg [&>button]:hidden"
+            content: "text-fg [&>button]:hidden",
           }}
-          isStack={intent === "floating"}
+          isFloat={intent === "floating"}
         >
-          <Sheet.Body className="px-2">{props.children}</Sheet.Body>
+          <Sheet.Body className="px-2 md:px-4">{props.children}</Sheet.Body>
         </Sheet.Content>
       </Sheet>
-    )
+    );
   }
 
   return (
-    <div className={navStyles({ isSticky, intent, className })} {...props}>
+    <div data-navbar-nav="true" className={navStyles({ isSticky, intent, className })} {...props}>
       <div>{props.children}</div>
     </div>
-  )
-}
+  );
+};
 
 const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof Button>) => {
-  const { toggleNavbar } = useNavbar()
+  const { toggleNavbar } = useNavbar();
   return (
     <Button
-      data-sidebar="trigger"
+      data-navbar-trigger="true"
       appearance="plain"
       aria-label={props["aria-label"] || "Toggle Navbar"}
       size="square-petite"
       className={className}
       onPress={(event) => {
-        onPress?.(event)
-        toggleNavbar()
+        onPress?.(event);
+        toggleNavbar();
       }}
       {...props}
     >
       <IconHamburger />
       <span className="sr-only">Toggle Navbar</span>
     </Button>
-  )
-}
+  );
+};
 
 const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
-  const isCompact = useMediaQuery("(max-width: 600px)")
-  const id = React.useId()
+  const { isCompact } = useNavbar();
+  const id = useId();
   return (
     <LayoutGroup id={id}>
       <div
-        data-slot="navbar-section"
-        className={cn("flex", isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center", className)}
+        data-navbar-section="true"
+        className={cn(
+          "flex",
+          isCompact ? "flex-col gap-y-4" : "flex-row items-center gap-x-3",
+          className,
+        )}
         {...props}
       >
         {props.children}
       </div>
     </LayoutGroup>
-  )
-}
+  );
+};
 
-const navbarItemStyles = tv({
+const navItemStyles = tv({
   base: [
-    "relative text-sm px-2 flex items-center gap-x-2 [&>[data-slot=icon]]:-mx-0.5 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] transition-colors",
-    "disabled:opacity-60 disabled:cursor-default",
-    "current:text-fg hover:text-fg focus:text-fg pressed:text-fg focus-visible:outline-1 focus-visible:outline-primary"
+    "relative no-underline cursor-pointer md:text-sm px-2 flex forced-colors:outline-0 items-center gap-x-2 *:data-[slot=icon]:-mx-0.5 text-muted-fg outline-hidden forced-colors:data-disabled:text-[GrayText] forced-colors:transform-none transition-colors",
+    "data-hovered:text-fg data-focused:text-fg data-pressed:text-fg data-focus-visible:outline-1 data-focus-visible:outline-primary",
+    "**:data-[slot=chevron]:size-4 **:data-[slot=chevron]:transition-transform",
+    "data-pressed:**:data-[slot=chevron]:rotate-180 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
+    "data-disabled:opacity-50 data-disabled:cursor-default data-disabled:forced-colors:text-[GrayText]",
   ],
   variants: {
     isCurrent: {
-      true: "text-fg"
-    }
-  }
-})
+      true: "text-navbar-fg cursor-default",
+    },
+  },
+});
 
-interface ItemProps extends React.ComponentProps<"a"> {
-  isCurrent?: boolean
+interface ItemProps extends LinkProps {
+  isCurrent?: boolean;
 }
 
 const Item = ({ className, isCurrent, ...props }: ItemProps) => {
-  const { intent, isCompact } = useNavbar()
+  const { intent, isCompact } = useNavbar();
   return (
-    <a
-      slot="navbar-item"
+    <Link
+      data-navbar-item="true"
       aria-current={isCurrent ? "page" : undefined}
-      className={navbarItemStyles({ isCurrent, className })}
+      className={composeRenderProps(className, (className, ...renderProps) =>
+        navItemStyles({ ...renderProps, isCurrent, className }),
+      )}
       {...props}
     >
-      {props.children}
+      {(values) => (
+        <>
+          {typeof props.children === "function" ? props.children(values) : props.children}
 
-      {isCurrent && !isCompact && intent !== "floating" && (
-        <motion.span
-          layoutId="current-indicator"
-          className="absolute inset-x-2 bottom-[calc(var(--navbar-height)*-0.33)] h-0.5 rounded-full bg-fg"
-        />
+          {(isCurrent || values.isCurrent) && !isCompact && intent !== "floating" && (
+            <motion.span
+              layoutId="current-indicator"
+              className="absolute inset-x-2 bottom-[calc(var(--navbar-height)*-0.33)] h-0.5 rounded-full bg-fg"
+            />
+          )}
+        </>
       )}
-    </a>
-  )
-}
+    </Link>
+  );
+};
 
-const Logo = ({ className, ...props }: React.ComponentProps<"a">) => {
+const Logo = ({ className, ...props }: LinkProps) => {
   return (
-    <a
-      className={cn(
-        "lg:mr-4 focus:outline-none flex items-center gap-x-2 focus-visible:outline-1 focus-visible:outline-primary px-2 py-4 lg:px-0 lg:py-0 text-fg",
-        className
+    <Link
+      className={composeTailwindRenderProps(
+        className,
+        "flex items-center gap-x-2 px-2 py-4 text-fg data-focus-visible:outline-1 data-focus-visible:outline-primary data-focused:outline-hidden md:mr-4 md:px-0 md:py-0",
       )}
       {...props}
     />
-  )
-}
+  );
+};
 
 const Flex = ({ className, ...props }: React.ComponentProps<"div">) => {
-  return <div className={cn("flex items-center gap-3", className)} {...props} />
-}
+  return <div className={cn("flex items-center gap-2 md:gap-3", className)} {...props} />;
+};
 
 const compactStyles = tv({
-  base: "lg:hidden flex peer-has-[[data-intent=floating]]:border bg-tertiary justify-between",
+  base: "md:hidden flex peer-has-[[data-navbar-intent=floating]]:border bg-navbar text-navbar-fg justify-between",
   variants: {
     intent: {
       floating: "border h-12 rounded-lg px-3.5",
       inset: "h-14 px-4",
-      navbar: "h-14 border-b px-4"
-    }
-  }
-})
+      navbar: "h-14 border-b px-4",
+    },
+  },
+});
 
 const Compact = ({ className, ...props }: React.ComponentProps<"div">) => {
-  const { intent } = useNavbar()
-  return <div className={compactStyles({ intent, className })} {...props} />
-}
+  const { intent } = useNavbar();
+  return <div className={compactStyles({ intent, className })} {...props} />;
+};
 
 const insetStyles = tv({
-  base: "grow p-4 lg:py-10",
+  base: "grow",
   variants: {
     intent: {
       floating: "",
-      inset: "bg-tertiary lg:rounded-lg lg:shadow-sm lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
-      navbar: ""
-    }
-  }
-})
+      inset: "bg-muted/40 md:rounded-lg md:shadow-xs md:ring-1 md:ring-fg/15 md:dark:ring-border",
+      navbar: "",
+    },
+  },
+});
 
 const Inset = ({ className, ...props }: React.ComponentProps<"div">) => {
-  const { intent } = useNavbar()
+  const { intent } = useNavbar();
   return (
-    <main data-intent={intent} className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 lg:px-2", className)}>
-      <div className={insetStyles({ intent, className })}>
-        <Container>{props.children}</Container>
-      </div>
+    <main
+      data-navbar-intent={intent}
+      className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 md:px-2", className)}
+    >
+      <div className={insetStyles({ intent, className })}>{props.children}</div>
     </main>
-  )
-}
+  );
+};
 
-Navbar.Nav = Nav
-Navbar.Inset = Inset
-Navbar.Compact = Compact
-Navbar.Flex = Flex
-Navbar.Trigger = Trigger
-Navbar.Logo = Logo
-Navbar.Item = Item
-Navbar.Section = Section
+Navbar.Nav = Nav;
+Navbar.Inset = Inset;
+Navbar.Compact = Compact;
+Navbar.Flex = Flex;
+Navbar.Trigger = Trigger;
+Navbar.Logo = Logo;
+Navbar.Item = Item;
+Navbar.Section = Section;
 
-export { Navbar, navbarItemStyles }
+export { Navbar };

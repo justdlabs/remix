@@ -1,24 +1,21 @@
-import React from "react"
-
-import { ThemeSwitcher } from "@/components/theme-switcher"
-import { Outlet } from "@remix-run/react"
-import { IconBrandGithub, IconBrandJustd, IconColors, IconCube } from "justd-icons"
-import { buttonStyles, Link, Navbar, navbarItemStyles, Separator } from "ui"
+import { IconArrowUpRight, IconBrandGithub, IconBrandJustd, IconChevronLgDown } from "justd-icons";
+import { Link, Menu, Navbar, Separator, buttonStyles } from "ui";
+import { ThemeSwitcher } from "~/components/theme-switcher";
 
 const navigations = [
   {
     name: "Home",
-    url: "/"
+    url: "/",
   },
   {
     name: "About",
-    url: "/about"
+    url: "/about",
   },
   {
     name: "Contact",
-    url: "/contact"
-  }
-]
+    url: "/contact",
+  },
+];
 
 export function AppNavbar() {
   return (
@@ -33,20 +30,31 @@ export function AppNavbar() {
               {item.name}
             </Navbar.Item>
           ))}
-          <a className={navbarItemStyles()} target="_blank" href="https://getjustd.com/components">
-            <IconCube />
-            Components
-          </a>
-          <a className={navbarItemStyles()} target="_blank" href="https://getjustd.com/icons">
-            <IconBrandJustd />
-            Icons
-          </a>
-          <a className={navbarItemStyles()} target="_blank" href="https://getjustd.com/themes">
-            <IconColors />
-            Themes
-          </a>
+          <Menu>
+            <Navbar.Item>
+              Resources <IconChevronLgDown />
+            </Navbar.Item>
+            <Menu.Content>
+              <Menu.Item target="_blank" href="https://getjustd.com/blocks">
+                Blocks
+                <IconArrowUpRight className="ml-auto" />
+              </Menu.Item>
+              <Menu.Item target="_blank" href="https://getjustd.com">
+                Components
+                <IconArrowUpRight className="ml-auto" />
+              </Menu.Item>
+              <Menu.Item target="_blank" href="https://getjustd.com/icons">
+                Icons
+                <IconArrowUpRight className="ml-auto" />
+              </Menu.Item>
+              <Menu.Item target="_blank" href="https://getjustd.com/themes">
+                Themes
+                <IconArrowUpRight className="ml-auto" />
+              </Menu.Item>
+            </Menu.Content>
+          </Menu>
         </Navbar.Section>
-        <Navbar.Section className="ml-auto gap-x-1 lg:flex hidden">
+        <Navbar.Section className="hidden gap-x-1 ml-auto lg:flex">
           <ThemeSwitcher />
           <Link
             className={buttonStyles({ appearance: "outline", size: "square-petite" })}
@@ -101,7 +109,6 @@ export function AppNavbar() {
           </Link>
         </Navbar.Flex>
       </Navbar.Compact>
-      <Outlet />
     </Navbar>
-  )
+  );
 }

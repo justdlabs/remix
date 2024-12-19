@@ -1,31 +1,35 @@
-import * as React from "react"
-
-import { Separator as SeparatorPrimitive, type SeparatorProps } from "react-aria-components"
-import { tv } from "tailwind-variants"
+import { Separator as Divider, type SeparatorProps as DividerProps } from "react-aria-components";
+import { tv } from "tailwind-variants";
 
 const separatorStyles = tv({
   base: "bg-border shrink-0 forced-colors:bg-[ButtonBorder]",
   variants: {
     orientation: {
       horizontal: "h-px w-full",
-      vertical: "w-px"
-    }
+      vertical: "w-px",
+    },
   },
   defaultVariants: {
-    orientation: "horizontal"
-  }
-})
+    orientation: "horizontal",
+  },
+});
 
-export function Separator({ className, ...props }: SeparatorProps) {
+interface SeparatorProps extends DividerProps {
+  className?: string;
+  ref?: React.RefObject<DividerProps>;
+}
+
+const Separator = ({ className, ref, ...props }: SeparatorProps) => {
   return (
-    <SeparatorPrimitive
+    <Divider
+      ref={ref}
       {...props}
       className={separatorStyles({
         orientation: props.orientation,
-        className: className
+        className: className,
       })}
     />
-  )
-}
+  );
+};
 
-export type { SeparatorProps }
+export { Separator };

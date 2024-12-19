@@ -5,8 +5,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe04e302-a05c-4903-b48a-44acc0ea79b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/layouts/app-layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/layouts/guest-layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/about/route.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/contact/route.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/use-media-query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biome.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/use-media-query.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app-navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/route-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/router-provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/theme-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/theme-provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/theme-switcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/theme-switcher.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/avatar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/checkbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/dropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/dropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/grid.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/heading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/heading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/keyboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/keyboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/link.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/modal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/ui/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/popover.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/popover.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/primitive.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/primitive.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/separator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/separator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/sheet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/text-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/text-field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/toast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/toast.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/visually-hidden.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/root.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/_auth.login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/login/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/_auth.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/_index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/_index/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/about.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/action.set-theme.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/action.set-theme.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/contact.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/sessions.server.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/sessions.server.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/styles/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/styles/sonner.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/classes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/classes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lockb" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lockb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/justd.json" beforeDir="false" afterPath="$PROJECT_DIR$/justd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/classes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/classes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +74,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;irsyadadl&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/justdlabs/remix.git&quot;,
+    &quot;accountId&quot;: &quot;7d699158-95ee-42d2-ab6d-812ca854fb6b&quot;
+  }
+}</component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
@@ -38,6 +108,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/irsyad/code/justd-remix/app/components/ui&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -54,6 +125,7 @@
       <recent name="$PROJECT_DIR$/app/components/ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/routes/_index" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/components/ui" />
       <recent name="$PROJECT_DIR$/components/ui" />
@@ -62,7 +134,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23726.96" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
       </set>
     </attachedChunks>
   </component>
@@ -92,7 +164,10 @@
       <workItem from="1729598080884" duration="47000" />
       <workItem from="1729763840738" duration="30000" />
       <workItem from="1729939761588" duration="540000" />
-      <workItem from="1731368135154" duration="101000" />
+      <workItem from="1731368135154" duration="265000" />
+      <workItem from="1734591534925" duration="708000" />
+      <workItem from="1734592512899" duration="795000" />
+      <workItem from="1734593400931" duration="1396000" />
     </task>
     <servers />
   </component>

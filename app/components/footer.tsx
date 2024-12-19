@@ -1,60 +1,64 @@
-import React from "react"
-
-import { IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from "justd-icons"
-import { Button, Link, TextField } from "ui"
+import {
+  IconBrandFacebook,
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandTwitter,
+  IconBrandYoutube,
+} from "justd-icons";
+import { Button, Link, TextField } from "ui";
 
 const navigation = {
   solutions: [
     { name: "Marketing", href: "#" },
     { name: "Analytics", href: "#" },
     { name: "Commerce", href: "#" },
-    { name: "Insights", href: "#" }
+    { name: "Insights", href: "#" },
   ],
   support: [
     { name: "Pricing", href: "#" },
     { name: "Documentation", href: "#" },
     { name: "Guides", href: "#" },
-    { name: "API Status", href: "#" }
+    { name: "API Status", href: "#" },
   ],
   company: [
     { name: "About", href: "/about" },
     { name: "Blog", href: "#" },
     { name: "Jobs", href: "#" },
     { name: "Press", href: "#" },
-    { name: "Partners", href: "#" }
+    { name: "Partners", href: "#" },
   ],
   legal: [
     { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" }
+    { name: "Terms", href: "#" },
   ],
   social: [
     {
       name: "Facebook",
       href: "#",
-      icon: <IconBrandFacebook />
+      icon: <IconBrandFacebook />,
     },
     {
       name: "Instagram",
       href: "#",
-      icon: <IconBrandInstagram />
+      icon: <IconBrandInstagram />,
     },
     {
       name: "Twitter",
       href: "#",
-      icon: <IconBrandTwitter />
+      icon: <IconBrandTwitter />,
     },
     {
       name: "GitHub",
       href: "#",
-      icon: <IconBrandGithub />
+      icon: <IconBrandGithub />,
     },
     {
       name: "YouTube",
       href: "#",
-      icon: <IconBrandYoutube />
-    }
-  ]
-}
+      icon: <IconBrandYoutube />,
+    },
+  ],
+};
 
 export function Footer() {
   return (
@@ -62,7 +66,7 @@ export function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
+      <div className="px-6 pt-20 pb-8 mx-auto max-w-7xl sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="grid grid-cols-2 gap-8 xl:col-span-2">
             <div className="md:grid md:grid-cols-2 md:gap-8">
@@ -71,7 +75,10 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
                         {item.name}
                       </Link>
                     </li>
@@ -83,7 +90,10 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.support.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
                         {item.name}
                       </Link>
                     </li>
@@ -97,7 +107,10 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
                         {item.name}
                       </Link>
                     </li>
@@ -109,7 +122,10 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-muted-fg hover:text-fg">
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
                         {item.name}
                       </Link>
                     </li>
@@ -118,9 +134,11 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="mt-10 flex flex-col xl:mt-0">
+          <div className="flex flex-col mt-10 xl:mt-0">
             <div className="flex-1 mb-6">
-              <h3 className="text-sm font-semibold leading-6 text-fg">Subscribe to our newsletter</h3>
+              <h3 className="text-sm font-semibold leading-6 text-fg">
+                Subscribe to our newsletter
+              </h3>
               <p className="mt-2 text-sm leading-6 text-muted-fg">
                 The latest news, articles, and resources, sent to your inbox weekly.
               </p>
@@ -134,14 +152,14 @@ export function Footer() {
                   isRequired
                   placeholder="Enter your email"
                 />
-                <div className="mt-6 sm:ml-2 sm:mt-0 sm:flex-shrink-0">
+                <div className="mt-6 sm:mt-0 sm:ml-2 sm:shrink-0">
                   <Button type="submit">Subscribe</Button>
                 </div>
               </form>
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-slate-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
+        <div className="pt-8 mt-16 border-t sm:mt-20 md:flex md:justify-between md:items-center lg:mt-24 border-slate-900/10">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
               <Link
@@ -154,9 +172,14 @@ export function Footer() {
               </Link>
             ))}
           </div>
-          <p className="mt-8 text-xs leading-5 text-muted-fg md:order-1 md:mt-0">
+          <p className="mt-8 text-xs leading-5 md:order-1 md:mt-0 text-muted-fg">
             &copy; 2024 Remix Starter Kit by{" "}
-            <a target="_blank" href="https://getjustd.com" className="font-semibold text-fg">
+            <a
+              target="_blank"
+              href="https://getjustd.com"
+              className="font-semibold text-fg"
+              rel="noreferrer"
+            >
               justd
             </a>
             , Inc. All rights reserved.
@@ -164,5 +187,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

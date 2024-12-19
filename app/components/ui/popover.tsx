@@ -1,122 +1,140 @@
-import * as React from "react"
-
 import type {
   DialogTriggerProps,
   ModalOverlayProps,
-  PopoverProps as PopoverPrimitiveProps
-} from "react-aria-components"
+  PopoverProps as PopoverPrimitiveProps,
+} from "react-aria-components";
 import {
   type DialogProps,
   DialogTrigger,
   Modal,
   ModalOverlay,
   OverlayArrow,
-  Popover as PopoverPrimitive,
   PopoverContext,
-  useSlottedContext
-} from "react-aria-components"
-import { twJoin } from "tailwind-merge"
-import { tv } from "tailwind-variants"
+  Popover as PopoverPrimitive,
+  composeRenderProps,
+  useSlottedContext,
+} from "react-aria-components";
+import { twMerge } from "tailwind-merge";
+import { tv } from "tailwind-variants";
+import { useMediaQuery } from "~/utils/use-media-query";
 
-import { Dialog } from "./dialog"
-import { cn, cr, useMediaQuery } from "./primitive"
+import { Dialog } from "./dialog";
 
 const Popover = ({ children, ...props }: DialogTriggerProps) => {
-  return <DialogTrigger {...props}>{children}</DialogTrigger>
-}
+  return <DialogTrigger {...props}>{children}</DialogTrigger>;
+};
 
 const Title = ({ level = 2, className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
-  <Dialog.Title className={cn("sm:leading-none", level === 2 && "sm:text-lg", className)} {...props} />
-)
+  <Dialog.Title
+    className={twMerge("sm:leading-none", level === 2 && "sm:text-lg", className)}
+    {...props}
+  />
+);
 
 const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Header className={cn("p-0 sm:pt-0", className)} {...props} />
-)
+  <Dialog.Header className={twMerge("sm:p-4", className)} {...props} />
+);
 
 const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Footer className={cn("pb-0 pt-4 sm:pb-0", className)} {...props} />
-)
+  <Dialog.Footer className={twMerge("sm:p-4", className)} {...props} />
+);
 
 const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Body className={cn("p-0", className)} {...props} />
-)
+  <Dialog.Body className={twMerge("sm:px-4", className)} {...props} />
+);
 
-const popoverContentStyles = tv({
+const content = tv({
   base: [
-    "max-w-xs min-w-80 p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-sm dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
+    "max-w-xs transition-transform peer-not-has-[data=dialog-header]:p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 sm:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]",
   ],
   variants: {
+    isPicker: { true: "max-h-72 min-w-(--trigger-width) overflow-y-auto p-0", false: "min-w-80" },
     isMenu: {
       true: {
-        true: "p-0"
-      }
+        true: "p-0",
+      },
     },
     isEntering: {
       true: [
-        "duration-50 ease-out animate-in fade-in placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1"
-      ]
+        "duration-100 ease-out animate-in fade-in",
+        "data-[placement=left]:slide-in-from-right-1 data-[placement=right]:slide-in-from-left-1 data-[placement=top]:slide-in-from-bottom-1 data-[placement=bottom]:slide-in-from-top-1",
+      ],
     },
     isExiting: {
-      true: "duration-50 ease-in animate-out fade-out placement-left:slide-out-to-right-1 placement-right:slide-out-to-left-1 placement-top:slide-out-to-bottom-1 placement-bottom:slide-out-to-top-1"
-    }
-  }
-})
+      true: [
+        "duration-50 ease-in animate-out fade-out",
+        "data-[placement=left]:slide-out-to-right-1 data-[placement=right]:slide-out-to-left-1 data-[placement=top]:slide-out-to-bottom-1 data-[placement=bottom]:slide-out-to-top-1",
+      ],
+    },
+  },
+});
 
-const drawerStyles = tv({
+const drawer = tv({
   base: [
-    "fixed max-h-full bottom-0 top-auto z-50 w-full bg-overlay max-w-2xl border border-b-transparent outline-none"
+    "fixed max-h-full bottom-0 top-auto z-50 w-full bg-overlay max-w-2xl border border-b-transparent outline-hidden",
   ],
   variants: {
     isMenu: {
-      true: "p-0 [&_[role=dialog]]:px-0 rounded-t-xl",
-      false: "py-4 rounded-t-3xl"
+      true: "p-0 [&_[role=dialog]]:*:not-has-[[data-slot=dialog-body]]:px-1 rounded-t-xl",
+      false: "py-4 rounded-t-2xl",
     },
     isEntering: {
       true: [
         "[will-change:transform] [transition:transform_0.5s_cubic-bezier(0.32,_0.72,_0,_1)]",
         "animate-in duration-200 fade-in-0 slide-in-from-bottom-56",
         "[transition:translate3d(0,_100%,_0)]",
-        "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]"
-      ]
+        "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]",
+      ],
     },
     isExiting: {
-      true: "duration-200 ease-in animate-out slide-out-to-bottom-56"
-    }
-  }
-})
+      true: "duration-200 ease-in animate-out slide-out-to-bottom-56",
+    },
+  },
+});
 
 interface PopoverProps
   extends Omit<React.ComponentProps<typeof Modal>, "children">,
     Omit<PopoverPrimitiveProps, "children" | "className">,
     Omit<ModalOverlayProps, "className"> {
-  children: React.ReactNode
-  showArrow?: boolean
-  style?: React.CSSProperties
-  respectScreen?: boolean
-  "aria-label"?: DialogProps["aria-label"]
-  "aria-labelledby"?: DialogProps["aria-labelledby"]
-  className?: string | ((values: { defaultClassName?: string }) => string)
+  children: React.ReactNode;
+  showArrow?: boolean;
+  style?: React.CSSProperties;
+  respectScreen?: boolean;
+  "aria-label"?: DialogProps["aria-label"];
+  "aria-labelledby"?: DialogProps["aria-labelledby"];
+  className?: string | ((values: { defaultClassName?: string }) => string);
 }
 
-const Content = ({ respectScreen = true, children, showArrow = true, className, ...props }: PopoverProps) => {
-  const isMobile = useMediaQuery("(max-width: 600px)")
-  const popoverContext = useSlottedContext(PopoverContext)!
-  const isMenuTrigger = popoverContext?.trigger === "MenuTrigger"
-  const isSubmenuTrigger = popoverContext?.trigger === "SubmenuTrigger"
-  const isMenu = isMenuTrigger || isSubmenuTrigger
-  const offset = showArrow ? 12 : 8
-  const effectiveOffset = isSubmenuTrigger ? offset - 5 : offset
+const Content = ({
+  respectScreen = true,
+  children,
+  showArrow = true,
+  className,
+  ...props
+}: PopoverProps) => {
+  const isMobile = useMediaQuery("(max-width: 600px)");
+  const popoverContext = useSlottedContext(PopoverContext)!;
+  const isMenuTrigger = popoverContext?.trigger === "MenuTrigger";
+  const isSubmenuTrigger = popoverContext?.trigger === "SubmenuTrigger";
+  const isMenu = isMenuTrigger || isSubmenuTrigger;
+  const offset = showArrow ? 12 : 8;
+  const effectiveOffset = isSubmenuTrigger ? offset - 5 : offset;
   return isMobile && respectScreen ? (
     <ModalOverlay
-      className={twJoin(
-        "fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]",
-        isSubmenuTrigger ? "bg-overlay/10" : ""
-      )}
+      className="fixed top-0 left-0 z-50 w-full isolate h-(--visual-viewport-height) bg-overlay/10 [--visual-viewport-vertical-padding:16px]"
       {...props}
       isDismissable
     >
-      <Modal className={cr(className, (className, renderProps) => drawerStyles({ ...renderProps, isMenu, className }))}>
-        <Dialog aria-label={isMenu ? "Menu" : props["aria-label"]} className="touch-none focus:outline-none">
+      <Modal
+        className={composeRenderProps(className, (className, renderProps) =>
+          drawer({ ...renderProps, isMenu, className }),
+        )}
+      >
+        <Dialog
+          role="dialog"
+          aria-label={isMenu ? "Menu" : props["aria-label"]}
+          className="p-0 sm:p-0 touch-none data-focused:outline-hidden"
+        >
           {children}
         </Dialog>
       </Modal>
@@ -125,11 +143,11 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
     <PopoverPrimitive
       offset={effectiveOffset}
       {...props}
-      className={cr(className, (className, renderProps) =>
-        popoverContentStyles({
+      className={composeRenderProps(className, (className, renderProps) =>
+        content({
           ...renderProps,
-          className
-        })
+          className,
+        }),
       )}
     >
       {showArrow && (
@@ -138,7 +156,7 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
             width={12}
             height={12}
             viewBox="0 0 12 12"
-            className="block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
+            className="group-data-[placement=left]:-rotate-90 block fill-overlay stroke-border group-data-[placement=bottom]:rotate-180 group-data-[placement=right]:rotate-90 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
           >
             <path d="M0 0 L6 6 L12 0" />
           </svg>
@@ -146,34 +164,35 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
       )}
       {children}
     </PopoverPrimitive>
-  )
-}
+  );
+};
 
 const Picker = ({ children, className, ...props }: PopoverProps) => {
   return (
     <PopoverPrimitive
       {...props}
-      className={cr(className as PopoverPrimitiveProps["className"], (className, renderProps) =>
-        popoverContentStyles({
+      className={composeRenderProps(className, (className, renderProps) =>
+        content({
           ...renderProps,
-          className: cn("max-h-72 min-w-[--trigger-width] overflow-y-auto p-0", className)
-        })
+          isPicker: true,
+          className,
+        }),
       )}
     >
       {children}
     </PopoverPrimitive>
-  )
-}
+  );
+};
 
-Popover.Primitive = PopoverPrimitive
-Popover.Trigger = Dialog.Trigger
-Popover.Close = Dialog.Close
-Popover.Content = Content
-Popover.Description = Dialog.Description
-Popover.Body = Body
-Popover.Footer = Footer
-Popover.Header = Header
-Popover.Picker = Picker
-Popover.Title = Title
+Popover.Primitive = PopoverPrimitive;
+Popover.Trigger = Dialog.Trigger;
+Popover.Close = Dialog.Close;
+Popover.Content = Content;
+Popover.Description = Dialog.Description;
+Popover.Body = Body;
+Popover.Footer = Footer;
+Popover.Header = Header;
+Popover.Picker = Picker;
+Popover.Title = Title;
 
-export { Popover, drawerStyles, popoverContentStyles }
+export { Popover, content };
