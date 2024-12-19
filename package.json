@@ -17,7 +17,7 @@
   "dependencies": {
     "@netlify/functions": "^2.8.2",
     "@netlify/remix-adapter": "^2.6.0",
-    "@remix-run/node": "^2.15.1",
+    "@remix-run/cloudflare": "^2.15.1",
     "@remix-run/react": "^2.15.1",
     "@remix-run/serve": "^2.15.1",
     "clsx": "^2.1.1",
