@@ -1,4 +1,7 @@
-import { vitePlugin as remix } from "@remix-run/dev";
+import {
+  vitePlugin as remix,
+  cloudflareDevProxyVitePlugin as remixCloudflareDevProxy,
+} from "@remix-run/dev";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -11,6 +14,7 @@ declare module "@remix-run/node" {
 
 export default defineConfig({
   plugins: [
+    remixCloudflareDevProxy(),
     tailwindcss(),
     remix({
       future: {
