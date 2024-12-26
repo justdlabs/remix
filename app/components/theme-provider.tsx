@@ -1,1 +1,1 @@
-export { Theme, useTheme } from "remix-themes";
+export { Theme, useTheme } from "remix-themes"
