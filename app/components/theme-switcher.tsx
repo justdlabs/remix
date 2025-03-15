@@ -13,7 +13,7 @@ export function ThemeSwitcher() {
 	}
 
 	return (
-		<Button appearance="outline" size="square-petite" aria-label="Switch theme" onPress={switchTheme}>
+		<Button intent="outline" size="square-petite" aria-label="Switch theme" onPress={switchTheme}>
 			{Theme.LIGHT === theme ? <IconSun /> : <IconMoon />}
 		</Button>
 	)

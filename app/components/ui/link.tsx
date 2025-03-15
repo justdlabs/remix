@@ -1,36 +1,26 @@
-import { Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps, composeRenderProps } from "react-aria-components"
-import { tv } from "tailwind-variants"
-
-const linkStyles = tv({
-	base: [
-		"relative outline-0 outline-primary outline-offset-2 transition-colors data-focus-visible:outline-2 data-focused:outline-hidden",
-		"data-disabled:data-focus-visible:outline-0 forced-colors:outline-[Highlight] forced-colors:data-disabled:text-[GrayText]",
-		"disabled:cursor-default data-disabled:opacity-60",
-	],
-	variants: {
-		intent: {
-			unstyled: "text-current",
-			primary: "text-fg data-hovered:underline forced-colors:data-disabled:text-[GrayText]",
-			secondary: "text-muted-fg data-hovered:text-secondary-fg forced-colors:data-disabled:text-[GrayText]",
-		},
-	},
-	defaultVariants: {
-		intent: "unstyled",
-	},
-})
+import { Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from "react-aria-components"
+import { twJoin } from "tailwind-merge"
+import { composeTailwindRenderProps } from "~/components/ui/primitive"
 
 interface LinkProps extends LinkPrimitiveProps {
 	intent?: "primary" | "secondary" | "unstyled"
 	ref?: React.RefObject<HTMLAnchorElement>
 }
 
-const Link = ({ className, ref, ...props }: LinkProps) => {
+const Link = ({ className, ref, intent = "unstyled", ...props }: LinkProps) => {
 	return (
 		<LinkPrimitive
 			ref={ref}
 			{...props}
-			className={composeRenderProps(className, (className, ...renderProps) =>
-				linkStyles({ ...renderProps, intent: props.intent, className }),
+			className={composeTailwindRenderProps(
+				className,
+				twJoin([
+					"outline-0 outline-offset-2 transition-[color,_opacity] focus-visible:outline-2 focus-visible:outline-ring forced-colors:outline-[Highlight]",
+					"disabled:cursor-default disabled:opacity-60 forced-colors:disabled:text-[GrayText]",
+					intent === "unstyled" && "text-current",
+					intent === "primary" && "text-primary hover:underline",
+					intent === "secondary" && "text-secondary-fg hover:underline",
+				]),
 			)}
 		>
 			{(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
