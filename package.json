@@ -28,8 +28,8 @@
 		"tailwind-merge": "^2.6.0",
 		"tailwind-variants": "^0.2.1",
 		"tailwindcss": "^4.0.14",
-		"tailwindcss-animate": "^1.0.7",
-		"tailwindcss-react-aria-components": "^2.0.0"
+		"tailwindcss-react-aria-components": "^2.0.0",
+		"tw-animate-css": "^1.2.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
